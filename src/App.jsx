@@ -4,6 +4,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ItemModal } from './components/ItemModal';
+import { CustomCursor } from './components/CustomCursor';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -21,6 +22,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <CustomCursor />
       <div className="app-root">
         <Navbar />
         <main>

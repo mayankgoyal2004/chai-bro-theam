@@ -147,29 +147,59 @@ a:hover {
   color: var(--cardamom-green);
 }
 
+/* Badge Pills */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.badge-terracotta {
+  background: var(--terracotta-light);
+  color: var(--terracotta);
+  border: 1px solid var(--border-terracotta);
+}
+
+.badge-gurh {
+  background: var(--gurh-light);
+  color: var(--gurh-dark);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.badge-cardamom {
+  background: var(--cardamom-light);
+  color: var(--cardamom-green);
+  border: 1px solid rgba(29, 111, 66, 0.25);
+}
+
 /* Buttons */
 .btn-primary {
-  background: var(--terracotta);
+  background: linear-gradient(135deg, #BA4A24 0%, #D97706 100%);
   color: #FFFFFF;
-  border: 1px solid var(--terracotta);
-  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 700;
   border-radius: 9999px;
   padding: 13px 30px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(186, 74, 36, 0.25);
+  box-shadow: 0 8px 24px rgba(186, 74, 36, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   transition: all var(--transition-fast);
   text-decoration: none;
   font-size: 0.95rem;
 }
 
 .btn-primary:hover {
-  background: var(--terracotta-hover);
-  border-color: var(--terracotta-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(186, 74, 36, 0.35);
+  box-shadow: 0 12px 30px rgba(217, 119, 6, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   color: #FFFFFF;
 }
 
@@ -178,10 +208,10 @@ a:hover {
 }
 
 .btn-secondary {
-  background: var(--bg-white);
+  background: #FFFFFF;
   color: var(--text-heading);
   border: 1px solid var(--border-subtle);
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 9999px;
   padding: 13px 28px;
   display: inline-flex;
@@ -202,55 +232,25 @@ a:hover {
 }
 
 .btn-accent {
-  background: var(--gurh-amber);
+  background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
   color: #FFFFFF;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 9999px;
   padding: 11px 24px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  border: none;
-  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.35);
   transition: all var(--transition-fast);
   font-size: 0.9rem;
 }
 
 .btn-accent:hover {
-  background: var(--gurh-dark);
-  transform: translateY(-1px);
-}
-
-/* Badges */
-.badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 4px 14px;
-  border-radius: 9999px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.badge-terracotta {
-  background: var(--terracotta-light);
-  color: var(--terracotta);
-  border: 1px solid rgba(186, 74, 36, 0.2);
-}
-
-.badge-gurh {
-  background: var(--gurh-light);
-  color: var(--gurh-dark);
-  border: 1px solid rgba(217, 119, 6, 0.25);
-}
-
-.badge-cardamom {
-  background: var(--cardamom-light);
-  color: var(--cardamom-green);
-  border: 1px solid rgba(29, 111, 66, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(217, 119, 6, 0.5);
+  color: #FFFFFF;
 }
 
 /* Common Layout */
