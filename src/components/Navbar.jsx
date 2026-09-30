@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Coffee, MapPin, Store, Menu, X, ChevronRight, Phone } from 'lucide-react';
+import { MapPin, Store, Menu, X, ChevronRight, Phone } from 'lucide-react';
+import brandLogo from '../assets/brand.webp';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,9 +55,7 @@ export const Navbar = () => {
         <div className="container nav-content">
           {/* Logo */}
           <Link to="/" className="nav-logo">
-            <div className="logo-badge">
-              <Coffee size={22} className="logo-cup-icon" />
-            </div>
+            <img src={brandLogo} alt="Chai Bro's Logo" className="nav-logo-img" />
             <div className="logo-text">
               <span className="logo-name">CHAI <span className="logo-accent">BRO’S</span></span>
               <span className="logo-sub">PEACE IN EVERY SIP</span>
