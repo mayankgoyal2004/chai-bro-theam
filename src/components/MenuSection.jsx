@@ -1,171 +1,175 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { MENU_CATEGORIES, MENU_ITEMS } from '../data/menuData';
-import { Search, Flame, Coffee, UtensilsCrossed, Sparkles, Cookie, Eye, Star, Info, Store } from 'lucide-react';
+import { MenuItemCard } from './MenuItemCard';
+import { Search, X, CheckCircle2, Coffee, Sparkles } from 'lucide-react';
 
-export const MenuSection = ({ setActiveItemModal }) => {
+export const MenuSection = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [vegOnly, setVegOnly] = useState(false);
 
-  const renderCategoryIcon = (iconName) => {
-    switch (iconName) {
-      case 'Flame': return <Flame size={17} />;
-      case 'Coffee': return <Coffee size={17} />;
-      case 'UtensilsCrossed': return <UtensilsCrossed size={17} />;
-      case 'Sparkles': return <Sparkles size={17} />;
-      case 'Cookie': return <Cookie size={17} />;
-      default: return <Coffee size={17} />;
-    }
-  };
+  // Specific categories (excluding 'all')
+  const specificCategories = useMemo(() => {
+    return MENU_CATEGORIES.filter(c => c.id !== 'all');
+  }, []);
 
-  const filteredItems = useMemo(() => {
-    return MENU_ITEMS.filter((item) => {
-      const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
-      const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            item.ingredients.some(i => i.toLowerCase().includes(searchQuery.toLowerCase()));
-      const matchesVeg = !vegOnly || item.isVeg;
-      return matchesCategory && matchesSearch && matchesVeg;
-    });
-  }, [activeCategory, searchQuery, vegOnly]);
+  // Filtered categories and items
+  const displayedSections = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim();
+
+    return specificCategories.map((cat) => {
+      if (activeCategory !== 'all' && activeCategory !== cat.id) {
+        return null;
+      }
+
+      const items = MENU_ITEMS.filter((item) => {
+        if (item.category !== cat.id) return false;
+        if (!q) return true;
+        return (
+          item.name.toLowerCase().includes(q) ||
+          (item.categoryLabel && item.categoryLabel.toLowerCase().includes(q))
+        );
+      });
+
+      if (items.length === 0) return null;
+
+      return {
+        ...cat,
+        items
+      };
+    }).filter(Boolean);
+  }, [activeCategory, searchQuery, specificCategories]);
+
+  const totalFilteredCount = useMemo(() => {
+    return displayedSections.reduce((sum, sec) => sum + sec.items.length, 0);
+  }, [displayedSections]);
 
   return (
-    <section id="menu" className="section-padding menu-section">
+    <section id="menu" className="chai-menu-section-wrap">
       <div className="container">
-        {/* Section Header */}
-        <div className="section-header text-center">
-          <span className="badge-pill badge-terracotta mb-2">
-            HANDCRAFTED DELICACIES
-          </span>
-          <h1 className="section-title">
-            Our Handcrafted <span className="text-terracotta font-serif italic">Café Menu</span>
-          </h1>
-          <p className="section-subtitle">
-            From our slow-simmered Gurh Laachi Chai to hot Desi Ghee Churi and frothy cold shakes. Prepared fresh to order across all Chai Bro outlets.
-          </p>
-        </div>
-
-        {/* Filter Controls Bar */}
-        <div className="menu-filter-bar">
-          {/* Category Tabs */}
-          <div className="menu-cat-tabs">
-            {MENU_CATEGORIES.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`menu-cat-btn ${activeCategory === cat.id ? 'active' : ''}`}
-              >
-                <span className="cat-icon">{renderCategoryIcon(cat.icon)}</span>
-                <span>{cat.label}</span>
-              </button>
-            ))}
+        {/* Hero Header */}
+        <div className="chai-menu-hero-block text-center">
+          <div className="chai-hero-pill-badge">
+            <CheckCircle2 size={13} className="inline mr-1 text-cardamom" />
+            100% PURE VEGETARIAN • HAR SIP MEIN YAARI
           </div>
+          <h1 className="chai-hero-main-title">
+            Our Handcrafted <span className="chai-serif-italic">Café Delicacies</span>
+          </h1>
+          <p className="chai-hero-subtext">
+            Authentic slow-simmered Kulhad Chai, Ghar Ki Desi Ghee Churi, fresh roasts, stone-baked pizzas, burgers & shakes.
+          </p>
 
-          {/* Search & Veg Toggle Row */}
-          <div className="menu-search-row">
-            <div className="menu-search-input-box">
-              <Search size={17} className="text-muted" />
+          {/* Integrated Floating Search Bar */}
+          <div className="chai-hero-search-wrapper">
+            <div className="chai-search-pill-box">
+              <Search size={18} className="chai-search-svg" />
               <input
                 type="text"
-                placeholder="Search chai, churi, snacks..."
+                placeholder="Search flavours (e.g. Adrak Chai, Churi, Paneer Pizza, Burger)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="search-field"
+                className="chai-search-input-field"
               />
               {searchQuery && (
-                <button onClick={() => setSearchQuery('')} className="clear-btn">✕</button>
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="chai-clear-btn"
+                  title="Clear search"
+                >
+                  <X size={15} />
+                </button>
               )}
             </div>
 
-            <label className="veg-filter-switch">
-              <input
-                type="checkbox"
-                checked={vegOnly}
-                onChange={(e) => setVegOnly(e.target.checked)}
-              />
-              <span className="veg-custom-dot"></span>
-              <span className="veg-text">Pure Veg Only</span>
-            </label>
+            <div className="chai-search-stats-row">
+              <span className="chai-veg-assurance">
+                <span className="veg-mini-box"><span className="veg-mini-circle"></span></span>
+                100% Pure Veg Menu
+              </span>
+              <span className="chai-count-text">
+                Showing <strong>{totalFilteredCount}</strong> delicacies
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Menu Cards Grid */}
-        <div className="menu-product-grid">
-          {filteredItems.map((item) => (
-            <div key={item.id} className="menu-product-card">
-              {/* Photo Header */}
-              <div className="product-photo-wrap" onClick={() => setActiveItemModal(item)} style={{ cursor: 'pointer' }}>
-                <img src={item.image} alt={item.name} className="product-photo" loading="lazy" />
-                
-                {/* Badge */}
-                {item.badge && (
-                  <span className="product-badge">{item.badge}</span>
-                )}
+        {/* Category Filter Tabs Bar */}
+        <div className="chai-categories-bar-wrapper">
+          <div className="chai-categories-scroll-track">
+            {MENU_CATEGORIES.map((cat) => {
+              const count = cat.id === 'all'
+                ? MENU_ITEMS.length
+                : MENU_ITEMS.filter(i => i.category === cat.id).length;
 
-                {/* Veg indicator */}
-                <span className="product-veg-mark" title="100% Vegetarian">
-                  <span className="veg-circle"></span>
-                </span>
-
-                {/* Quick View Button */}
+              return (
                 <button
-                  onClick={(e) => { e.stopPropagation(); setActiveItemModal(item); }}
-                  className="product-quick-view"
-                  title="View details"
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`chai-cat-filter-btn ${activeCategory === cat.id ? 'active' : ''}`}
                 >
-                  <Eye size={15} />
-                  <span>View Details</span>
-                </button>
-              </div>
-
-              {/* Content */}
-              <div className="product-content">
-                <div className="product-meta-row">
-                  <span className="product-serving">{item.servingType}</span>
-                  <div className="product-rating">
-                    <Star size={13} className="fill-gurh-gold text-gurh-gold" />
-                    <span>{item.rating}</span>
-                    <small>({item.reviewsCount})</small>
-                  </div>
-                </div>
-
-                <h3 className="product-title" onClick={() => setActiveItemModal(item)} style={{ cursor: 'pointer' }}>
-                  {item.name}
-                </h3>
-                <p className="product-desc">{item.description}</p>
-
-                <div className="product-ingredients">
-                  {item.ingredients.slice(0, 3).map((ing, i) => (
-                    <span key={i} className="ing-chip">{ing}</span>
-                  ))}
-                  {item.ingredients.length > 3 && (
-                    <span className="ing-chip font-semibold">+{item.ingredients.length - 3}</span>
+                  {cat.image && (
+                    <img src={cat.image} alt="" className="chai-btn-thumb-img" />
                   )}
+                  <span className="chai-btn-cat-name">{cat.label}</span>
+                  <span className="chai-btn-count-tag">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Rendered Category Sections */}
+        {displayedSections.length > 0 ? (
+          <div className="chai-sections-container">
+            {displayedSections.map((section) => (
+              <div
+                key={section.id}
+                id={`cat-${section.id}`}
+                className="chai-category-section-block"
+              >
+                {/* Category Header */}
+                <div className="chai-cat-header-strip">
+                  <div className="chai-cat-header-left">
+                    <div className="chai-cat-icon-title-row">
+                      <img src={section.image} alt="" className="chai-header-category-icon" />
+                      <h2 className="chai-cat-title-text">{section.label}</h2>
+                    </div>
+                    <p className="chai-cat-subtitle-text">{section.subtitle}</p>
+                  </div>
+                  <span className="chai-cat-choices-badge">
+                    <Sparkles size={11} className="inline mr-1 text-terracotta" />
+                    {section.items.length} {section.items.length === 1 ? 'choice' : 'choices'}
+                  </span>
                 </div>
 
-                {/* Price & Action */}
-                <div className="product-bottom-row">
-                  <div className="product-price-box">
-                    <span className="price-current">₹{item.price}</span>
-                    {item.originalPrice && (
-                      <span className="price-old">₹{item.originalPrice}</span>
-                    )}
-                  </div>
-
-                  <button
-                    onClick={() => setActiveItemModal(item)}
-                    className="product-add-btn"
-                    title="Recipe & Nutrition details"
-                  >
-                    <Info size={14} />
-                    <span>View Details</span>
-                  </button>
+                {/* 2-Column Responsive Grid */}
+                <div className="chai-items-cards-grid">
+                  {section.items.map((item) => (
+                    <MenuItemCard key={item.id} item={item} />
+                  ))}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="chai-no-results-state">
+            <Coffee size={44} className="chai-no-results-icon" />
+            <h3>No delicacies found</h3>
+            <p>We couldn't find any items matching "{searchQuery}". Try a different keyword or reset filters.</p>
+            <button
+              type="button"
+              onClick={() => {
+                setActiveCategory('all');
+                setSearchQuery('');
+              }}
+              className="btn-primary"
+            >
+              View All Items
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

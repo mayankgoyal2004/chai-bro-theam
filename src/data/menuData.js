@@ -1,569 +1,2310 @@
+// Chai Bro Handcrafted Cafe Menu
+// 100% Pure Vegetarian, Standardized Cafe Menu directly from Chai Bro's.xlsx
+
 export const MENU_CATEGORIES = [
-  { id: 'all', label: 'All Items', icon: 'Flame' },
-  { id: 'chai', label: 'Chai & Hot Sips', icon: 'Coffee' },
-  { id: 'churi', label: 'Signature Churi', icon: 'Sparkles' },
-  { id: 'coffee-shakes', label: 'Coffee & Shakes', icon: 'Flame' },
-  { id: 'burgers-fries', label: 'Burgers & Fries', icon: 'UtensilsCrossed' },
-  { id: 'pizzas-wraps', label: 'Pizzas & Wraps', icon: 'Cookie' },
-  { id: 'sandwiches-maggi', label: 'Sandwiches & Maggi', icon: 'UtensilsCrossed' }
+  {
+    "id": "all",
+    "label": "All Favourites",
+    "image": "/assets/menu/chai.png",
+    "subtitle": "Explore our full handcrafted pure vegetarian café menu.",
+    "itemsCount": 143
+  },
+  {
+    "id": "chai",
+    "label": "Chai",
+    "subtitle": "Freshly brewed cups with familiar Indian flavours.",
+    "image": "/assets/menu/chai.png",
+    "itemsCount": 10
+  },
+  {
+    "id": "hot-coffee",
+    "label": "Hot Coffee",
+    "subtitle": "Smooth coffee cups for a warm, easy break.",
+    "image": "/assets/menu/hot-coffee.png",
+    "itemsCount": 4
+  },
+  {
+    "id": "cold-coffee",
+    "label": "Cold Coffee",
+    "subtitle": "Creamy chilled coffee made for long conversations.",
+    "image": "/assets/menu/cold-coffee.png",
+    "itemsCount": 8
+  },
+  {
+    "id": "shakes",
+    "label": "Shakes",
+    "subtitle": "Thick, chilled and dessert-style favourites.",
+    "image": "/assets/menu/shakes.png",
+    "itemsCount": 15
+  },
+  {
+    "id": "mocktails",
+    "label": "Mocktails & Mojito",
+    "subtitle": "Bright, fizzy and refreshing glasses.",
+    "image": "/assets/menu/mocktails.png",
+    "itemsCount": 13
+  },
+  {
+    "id": "hot-milk",
+    "label": "Hot Milk",
+    "subtitle": "Comforting milk drinks with gurh, kesar and elaichi.",
+    "image": "/assets/menu/hot-milk.png",
+    "itemsCount": 4
+  },
+  {
+    "id": "cold-milk",
+    "label": "Cold Milk",
+    "subtitle": "Cooling milk blends for a simple refresh.",
+    "image": "/assets/menu/cold-milk.png",
+    "itemsCount": 4
+  },
+  {
+    "id": "lassi",
+    "label": "Lassi",
+    "subtitle": "Classic cooling favourites.",
+    "image": "/assets/menu/lassi.png",
+    "itemsCount": 3
+  },
+  {
+    "id": "burgers",
+    "label": "Burgers",
+    "subtitle": "Soft buns, crisp fillings and bold vegetarian flavours.",
+    "image": "/assets/menu/burgers.png",
+    "itemsCount": 7
+  },
+  {
+    "id": "fries",
+    "label": "Fries",
+    "subtitle": "Golden sides for sharing and dipping.",
+    "image": "/assets/menu/fries.png",
+    "itemsCount": 5
+  },
+  {
+    "id": "sides",
+    "label": "Sides",
+    "subtitle": "Small plates that complete a chai break.",
+    "image": "/assets/menu/sides.png",
+    "itemsCount": 9
+  },
+  {
+    "id": "healthy",
+    "label": "Healthy Feast",
+    "subtitle": "Lighter choices with corn, poha, chaat and salads.",
+    "image": "/assets/menu/healthy.png",
+    "itemsCount": 8
+  },
+  {
+    "id": "maggie",
+    "label": "Maggie",
+    "subtitle": "Hot noodle bowls for quick cravings.",
+    "image": "/assets/menu/maggie.png",
+    "itemsCount": 7
+  },
+  {
+    "id": "wraps",
+    "label": "Wraps",
+    "subtitle": "Handheld bites with crisp vegetables and paneer.",
+    "image": "/assets/menu/wraps.png",
+    "itemsCount": 5
+  },
+  {
+    "id": "pizza",
+    "label": "Pizza",
+    "subtitle": "Cheesy vegetarian pizzas from classic to loaded.",
+    "image": "/assets/menu/pizza.png",
+    "itemsCount": 19
+  },
+  {
+    "id": "sandwiches",
+    "label": "Sandwiches",
+    "subtitle": "Four-slice stacks with familiar fillings.",
+    "image": "/assets/menu/sandwiches.png",
+    "itemsCount": 9
+  },
+  {
+    "id": "pasta",
+    "label": "Pasta",
+    "subtitle": "Comforting bowls with red, white and mixed sauces.",
+    "image": "/assets/menu/pasta.png",
+    "itemsCount": 4
+  },
+  {
+    "id": "garlic-bread",
+    "label": "Garlic Bread",
+    "subtitle": "Buttery, cheesy and made for sharing.",
+    "image": "/assets/menu/garlic-bread.png",
+    "itemsCount": 8
+  },
+  {
+    "id": "churi",
+    "label": "Signature Desi Ghee Churi",
+    "subtitle": "A warm, sweet signature bite with desi ghee richness.",
+    "image": "/assets/menu/churi.png",
+    "itemsCount": 1
+  }
 ];
 
 export const MENU_ITEMS = [
-  // 1. Signature Churi (THE STAR ITEM OF CHAI BRO'S)
   {
-    id: 'desi-ghee-churi',
-    name: 'Special Desi Ghee Churi',
-    category: 'churi',
-    price: 60,
-    originalPrice: 80,
-    rating: 5.0,
-    reviewsCount: 840,
-    badge: 'Chai Bro\'s Signature',
-    isVeg: true,
-    spiceLevel: 0,
-    servingType: 'Traditional Clay Bowl (Warm)',
-    description: 'Our iconic heritage recipe from Sector 89 Mohali. Freshly made hot tawa rotis crushed by hand and tossed generously in bubbling pure Desi Ghee, crushed organic Gurh (jaggery), and roasted dry fruits.',
-    ingredients: ['Fresh Tawa Roti', '100% Pure Desi Ghee', 'Organic Gurh (Jaggery)', 'Almonds & Cashews'],
-    image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80',
-    prepTime: '5 mins',
-    calories: '280 kcal'
-  },
-
-  // 2. Chai & Hot Sips
-  {
-    id: 'adrak-chai',
-    name: 'Kadak Adrak Chai',
-    category: 'chai',
-    price: 25,
-    originalPrice: 35,
-    rating: 4.9,
-    reviewsCount: 620,
-    badge: 'Everyday Favourite',
-    isVeg: true,
-    spiceLevel: 2,
-    servingType: 'Mitti Kulhad (Normal / Medium / Large)',
-    description: 'Freshly crushed spicy ginger simmered with whole milk and strong Assam CTC tea leaves. Gives that authentic fiery throat warmth that revives your day.',
-    ingredients: ['Fresh Ginger (Adrak)', 'Whole Milk', 'Assam Tea', 'Natural Sweetness'],
-    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80',
-    prepTime: '3 mins',
-    calories: '85 kcal'
+    "id": "adrak-chai",
+    "name": "Adrak Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 25
+      },
+      {
+        "size": "Medium",
+        "price": 40
+      },
+      {
+        "size": "Large",
+        "price": 50
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'elaichi-chai',
-    name: 'Fragrant Elaichi Chai',
-    category: 'chai',
-    price: 30,
-    originalPrice: 40,
-    rating: 4.8,
-    reviewsCount: 450,
-    badge: 'Popular',
-    isVeg: true,
-    spiceLevel: 1,
-    servingType: 'Mitti Kulhad',
-    description: 'Green cardamom pods crushed fresh on order, infusing sweet floral aromatics into thick, slow-boiled whole milk tea.',
-    ingredients: ['Kerala Green Cardamom', 'Whole Buffalo Milk', 'Assam Golden Blend'],
-    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80',
-    prepTime: '3 mins',
-    calories: '90 kcal'
+    "id": "gurh-chai",
+    "name": "Gurh Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 35
+      },
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 60
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'gurh-chai',
-    name: 'Pure Gurh (Jaggery) Chai',
-    category: 'chai',
-    price: 35,
-    originalPrice: 45,
-    rating: 4.9,
-    reviewsCount: 580,
-    badge: 'Healthy Choice',
-    isVeg: true,
-    spiceLevel: 1,
-    servingType: 'Mitti Kulhad',
-    description: 'Traditional slow-boiled chai sweetened entirely with chemical-free unrefined desi jaggery. Rich caramel notes without any refined sugar.',
-    ingredients: ['Organic Desi Gurh', 'Hand-ground Cardamom', 'Whole Milk', 'Assam Tea'],
-    image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '105 kcal'
+    "id": "chocolate-chai",
+    "name": "Chocolate Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 35
+      },
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 60
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'gurh-elaichi-chai',
-    name: 'Gurh + Elaichi Special Chai',
-    category: 'chai',
-    price: 35,
-    originalPrice: 50,
-    rating: 4.9,
-    reviewsCount: 490,
-    badge: 'House Bestseller',
-    isVeg: true,
-    spiceLevel: 1,
-    servingType: 'Mitti Kulhad',
-    description: 'The golden combination! Aromatic green cardamom and pure jaggery infused together in rich, creamy tea.',
-    ingredients: ['Desi Gurh', 'Crushed Green Elaichi', 'Whole Milk', 'Assam CTC'],
-    image: 'https://images.unsplash.com/photo-1561047029-3000c68339ca?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '110 kcal'
+    "id": "gurh-elaichi-chai",
+    "name": "Gurh + Elaichi Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 35
+      },
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 60
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'rose-chai',
-    name: 'Shahi Gulab (Rose) Chai',
-    category: 'chai',
-    price: 35,
-    originalPrice: 45,
-    rating: 4.7,
-    reviewsCount: 310,
-    badge: 'Artisanal',
-    isVeg: true,
-    spiceLevel: 0,
-    servingType: 'Mitti Kulhad',
-    description: 'Delicate sun-dried organic rose petal infusion with rich creamy chai. An uplifting, fragrant royal experience.',
-    ingredients: ['Organic Rose Petals', 'Green Cardamom', 'Whole Milk', 'Premium CTC'],
-    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80',
-    prepTime: '3 mins',
-    calories: '95 kcal'
+    "id": "adrak-elaichi-chai",
+    "name": "Adrak + Elaichi Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 35
+      },
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 60
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'chocolate-chai',
-    name: 'Desi Chocolate Chai',
-    category: 'chai',
-    price: 35,
-    originalPrice: 50,
-    rating: 4.8,
-    reviewsCount: 380,
-    badge: 'Youth Favourite',
-    isVeg: true,
-    spiceLevel: 0,
-    servingType: 'Mitti Kulhad',
-    description: 'Dark cocoa notes paired seamlessly with warm desi spices and thick boiled milk in an earthy terracotta kulhad.',
-    ingredients: ['Dutch Cocoa', 'Cinnamon Stick', 'Creamy Milk', 'Assam Tea'],
-    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '120 kcal'
+    "id": "elaichi-chai",
+    "name": "Elaichi Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 30
+      },
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 60
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'paan-chai',
-    name: 'Banarasi Paan Chai',
-    category: 'chai',
-    price: 35,
-    originalPrice: 50,
-    rating: 4.7,
-    reviewsCount: 290,
-    badge: 'Unique Blend',
-    isVeg: true,
-    spiceLevel: 1,
-    servingType: 'Mitti Kulhad',
-    description: 'Infused with cooling betel leaf notes, gulkand essence, and subtle spices. Incredibly refreshing digestive sip.',
-    ingredients: ['Betel Leaf Essence', 'Gulkand Sweetness', 'Cardamom', 'Whole Milk'],
-    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80',
-    prepTime: '3 mins',
-    calories: '100 kcal'
+    "id": "rose-chai",
+    "name": "Rose Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 35
+      },
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 60
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'kesar-chai',
-    name: 'Royal Kashmiri Kesar Chai',
-    category: 'chai',
-    price: 40,
-    originalPrice: 55,
-    rating: 4.9,
-    reviewsCount: 420,
-    badge: 'Royal Special',
-    isVeg: true,
-    spiceLevel: 1,
-    servingType: 'Mitti Kulhad',
-    description: 'Simmered with pure Kashmiri saffron strands, slivered pistachios, and green cardamom in double-boiled whole milk.',
-    ingredients: ['Pure Kashmiri Saffron (Kesar)', 'Pistachio Slivers', 'Cardamom', 'Thick Milk'],
-    image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '130 kcal'
+    "id": "paan-chai",
+    "name": "Paan Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 35
+      },
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 60
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'kesar-doodh',
-    name: 'Hot Shahi Kesar Doodh',
-    category: 'chai',
-    price: 55,
-    originalPrice: 70,
-    rating: 4.9,
-    reviewsCount: 310,
-    badge: 'Immunity Boost',
-    isVeg: true,
-    spiceLevel: 0,
-    servingType: 'Clay Glass (Medium / Large)',
-    description: 'Thick farm whole milk boiled gently in brass handis with real saffron, cardamom, and honey. Comforting bedtime or winter drink.',
-    ingredients: ['Pure Saffron', 'Green Elaichi', 'Whole Buffalo Milk', 'Honey / Gurh'],
-    image: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '160 kcal'
-  },
-
-  // 3. Coffee & Shakes
-  {
-    id: 'classic-cold-coffee',
-    name: 'Classic Creamy Cold Coffee',
-    category: 'coffee-shakes',
-    price: 99,
-    originalPrice: 120,
-    rating: 4.9,
-    reviewsCount: 510,
-    badge: 'Bestseller',
-    isVeg: true,
-    servingType: 'Chilled Tall Glass (300ml)',
-    description: 'Smooth, frothy chilled espresso blended with velvety full-cream milk and a rich cocoa swirl.',
-    ingredients: ['Arabica Espresso', 'Full Cream Milk', 'Cocoa Swirl', 'Crushed Ice'],
-    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80',
-    prepTime: '3 mins',
-    calories: '185 kcal'
+    "id": "gurh-masala-chai",
+    "name": "Gurh + Masala Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 35
+      },
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 60
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'brownie-cold-coffee',
-    name: 'Fudge Brownie Cold Coffee',
-    category: 'coffee-shakes',
-    price: 119,
-    originalPrice: 149,
-    rating: 4.9,
-    reviewsCount: 440,
-    badge: 'Decadent',
-    isVeg: true,
-    servingType: 'Chilled Glass with Brownie Crumbles',
-    description: 'Loaded with dense chocolate fudge brownie chunks blended right into thick cold coffee and topped with chocolate curls.',
-    ingredients: ['Walnut-free Fudge Brownie', 'Espresso Blend', 'Chocolate Ganache', 'Creamy Milk'],
-    image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '290 kcal'
+    "id": "kesar-chai",
+    "name": "Kesar Chai",
+    "category": "chai",
+    "categoryLabel": "Chai",
+    "image": "/assets/menu/chai.png",
+    "variants": [
+      {
+        "size": "Normal",
+        "price": 40
+      },
+      {
+        "size": "Medium",
+        "price": 55
+      },
+      {
+        "size": "Large",
+        "price": 65
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'biscoff-cold-coffee',
-    name: 'Lotus Biscoff Cold Coffee',
-    category: 'coffee-shakes',
-    price: 129,
-    originalPrice: 160,
-    rating: 4.8,
-    reviewsCount: 390,
-    badge: 'Trending',
-    isVeg: true,
-    servingType: 'Chilled Tall Glass',
-    description: 'Caramelized speculoos cookie spread blended into smooth chilled coffee, topped with crunchy Biscoff biscuit crumbs.',
-    ingredients: ['Lotus Biscoff Spread', 'Cold Brew Espresso', 'Cookie Crumble', 'Sweet Cream'],
-    image: 'https://images.unsplash.com/photo-1589396575653-c09c794ff6a6?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '280 kcal'
+    "id": "black-hot-coffee",
+    "name": "Black Hot Coffee",
+    "category": "hot-coffee",
+    "categoryLabel": "Hot Coffee",
+    "image": "/assets/menu/hot-coffee.png",
+    "variants": [
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 70
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'oreo-milk-shake',
-    name: 'Oreo Thick Shake',
-    category: 'coffee-shakes',
-    price: 129,
-    originalPrice: 155,
-    rating: 4.8,
-    reviewsCount: 470,
-    badge: 'All-Time Hit',
-    isVeg: true,
-    servingType: 'Thick Shake Mason Jar',
-    description: 'Double-stuffed Oreo cookies crushed with vanilla bean ice cream and chilled milk, drizzled with dark chocolate fudge sauce.',
-    ingredients: ['Oreo Cookies', 'Vanilla Ice Cream', 'Chocolate Drizzle', 'Whipped Cream'],
-    image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '310 kcal'
+    "id": "choco-hot-coffee",
+    "name": "Choco Hot Coffee",
+    "category": "hot-coffee",
+    "categoryLabel": "Hot Coffee",
+    "image": "/assets/menu/hot-coffee.png",
+    "variants": [
+      {
+        "size": "Medium",
+        "price": 60
+      },
+      {
+        "size": "Large",
+        "price": 75
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'kitkat-shake',
-    name: 'KitKat Crunch Shake',
-    category: 'coffee-shakes',
-    price: 129,
-    originalPrice: 155,
-    rating: 4.8,
-    reviewsCount: 360,
-    badge: 'Crispy Delight',
-    isVeg: true,
-    servingType: 'Tall Glass with KitKat Sticks',
-    description: 'Crispy wafer KitKat chocolate bars blended with chilled milk and ice cream, garnished with full KitKat fingers.',
-    ingredients: ['KitKat Wafers', 'Milk Chocolate', 'Vanilla Cream', 'Chocolate Sauce'],
-    image: 'https://images.unsplash.com/photo-1589396575653-c09c794ff6a6?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '305 kcal'
+    "id": "hot-coffee",
+    "name": "Hot Coffee",
+    "category": "hot-coffee",
+    "categoryLabel": "Hot Coffee",
+    "image": "/assets/menu/hot-coffee.png",
+    "variants": [
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 70
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'rasmalai-shake',
-    name: 'Royal Rasmalai Thick Shake',
-    category: 'coffee-shakes',
-    price: 149,
-    originalPrice: 180,
-    rating: 4.9,
-    reviewsCount: 410,
-    badge: 'Chef Special',
-    isVeg: true,
-    servingType: 'Thick Shake with Saffron & Nuts',
-    description: 'Real soft rasmalai soaked in sweetened saffron-cardamom milk blended into a rich dessert shake topped with almonds and pistachios.',
-    ingredients: ['Cottage Cheese Rasmalai', 'Saffron Rabri', 'Crushed Pistachios', 'Cardamom'],
-    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80',
-    prepTime: '4 mins',
-    calories: '320 kcal'
+    "id": "caramel-coffee",
+    "name": "Caramel Coffee",
+    "category": "hot-coffee",
+    "categoryLabel": "Hot Coffee",
+    "image": "/assets/menu/hot-coffee.png",
+    "variants": [
+      {
+        "size": "Medium",
+        "price": 60
+      },
+      {
+        "size": "Large",
+        "price": 75
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'virgin-mojito',
-    name: 'Chilled Virgin Mint Mojito',
-    category: 'coffee-shakes',
-    price: 99,
-    originalPrice: 120,
-    rating: 4.8,
-    reviewsCount: 340,
-    badge: 'Cooling Summer Sip',
-    isVeg: true,
-    servingType: 'Chilled Tall Glass (300ml)',
-    description: 'Muddled fresh mint leaves, zesty lemon wedges, sparkling soda, and crushed ice. The ultimate fizzy refresher.',
-    ingredients: ['Fresh Mint', 'Lemon Juice', 'Sparkling Soda', 'Cane Sugar', 'Crushed Ice'],
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80',
-    prepTime: '3 mins',
-    calories: '80 kcal'
-  },
-
-  // 4. Burgers & Fries
-  {
-    id: 'aloo-tikki-burger',
-    name: 'Desi Aloo Tikki Burger',
-    category: 'burgers-fries',
-    price: 59,
-    originalPrice: 75,
-    rating: 4.8,
-    reviewsCount: 680,
-    badge: 'Street Classic',
-    isVeg: true,
-    spiceLevel: 2,
-    servingType: 'Warm Toasted Bun',
-    description: 'Crisp golden spiced potato patty topped with sliced onions, crunchy cabbage, tomato, and tangy mint mayo in a sesame bun.',
-    ingredients: ['Spiced Potato Patty', 'Mint Mayo', 'Sliced Onions & Tomatoes', 'Sesame Bun'],
-    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80',
-    prepTime: '5 mins',
-    calories: '240 kcal'
+    "id": "classic-cold-coffee",
+    "name": "Classic Cold Coffee",
+    "category": "cold-coffee",
+    "categoryLabel": "Cold Coffee",
+    "image": "/assets/menu/cold-coffee.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'veg-paneer-burger',
-    name: 'Crispy Veg Paneer Burger',
-    category: 'burgers-fries',
-    price: 109,
-    originalPrice: 135,
-    rating: 4.9,
-    reviewsCount: 520,
-    badge: 'Bestseller',
-    isVeg: true,
-    spiceLevel: 2,
-    servingType: 'Loaded Burger with Fries',
-    description: 'Thick marinated fresh cottage cheese slab coated in seasoned crunch, topped with chipotle sauce, cheddar cheese, and fresh greens.',
-    ingredients: ['Cottage Cheese Slab', 'Chipotle Sauce', 'Lettuce & Onions', 'Butter Toasted Bun'],
-    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80',
-    prepTime: '6 mins',
-    calories: '320 kcal'
+    "id": "caramel-cold-coffee",
+    "name": "Caramel Cold Coffee",
+    "category": "cold-coffee",
+    "categoryLabel": "Cold Coffee",
+    "image": "/assets/menu/cold-coffee.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'cb-special-burger',
-    name: 'Chai Bro\'s Special Tower Burger',
-    category: 'burgers-fries',
-    price: 119,
-    originalPrice: 150,
-    rating: 5.0,
-    reviewsCount: 460,
-    badge: 'Chef Signature',
-    isVeg: true,
-    spiceLevel: 2,
-    servingType: 'Double Layer Gourmet Burger',
-    description: 'Double stacked patties (crispy vegetable + spiced paneer), double cheese slices, caramelized onions, and secret herb mayo.',
-    ingredients: ['Double Patties', 'Double Melted Cheese', 'Pickled Jalapeños', 'Secret Sauce'],
-    image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80',
-    prepTime: '7 mins',
-    calories: '390 kcal'
+    "id": "hazelnut-cold-coffee",
+    "name": "Hazelnut Cold Coffee",
+    "category": "cold-coffee",
+    "categoryLabel": "Cold Coffee",
+    "image": "/assets/menu/cold-coffee.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'peri-peri-fries',
-    name: 'Spicy Peri Peri Crispy Fries',
-    category: 'burgers-fries',
-    price: 129,
-    originalPrice: 150,
-    rating: 4.8,
-    reviewsCount: 590,
-    badge: 'Crispy Crunch',
-    isVeg: true,
-    spiceLevel: 3,
-    servingType: 'Wire Fry Basket with Garlic Dip',
-    description: 'Golden fried potato sticks tossed fresh in fiery African bird’s eye peri-peri spice dust. Served hot with creamy garlic dip.',
-    ingredients: ['Crisp Potato Fries', 'Peri Peri Spice Dust', 'Creamy Dip'],
-    image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80',
-    prepTime: '5 mins',
-    calories: '220 kcal'
+    "id": "cold-coffee-with-ice-cream",
+    "name": "Cold Coffee with Ice Cream",
+    "category": "cold-coffee",
+    "categoryLabel": "Cold Coffee",
+    "image": "/assets/menu/cold-coffee.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'mix-loaded-fries',
-    name: 'Chai Bro\'s Mix Loaded Fries',
-    category: 'burgers-fries',
-    price: 139,
-    originalPrice: 170,
-    rating: 4.9,
-    reviewsCount: 410,
-    badge: 'Ultimate Feast',
-    isVeg: true,
-    spiceLevel: 2,
-    servingType: 'Sharing Platter with Melted Cheese',
-    description: 'Golden fries smothered in warm liquid cheddar cheese sauce, diced jalapeños, olives, spicy chipotle drizzle, and fresh coriander.',
-    ingredients: ['Fries', 'Warm Cheddar Sauce', 'Jalapeños & Olives', 'Chipotle Mayo'],
-    image: 'https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=800&q=80',
-    prepTime: '6 mins',
-    calories: '340 kcal'
-  },
-
-  // 5. Pizzas & Wraps
-  {
-    id: 'cheese-onion-pizza',
-    name: 'Cheese Onion Pizza 7"',
-    category: 'pizzas-wraps',
-    price: 99,
-    originalPrice: 125,
-    rating: 4.8,
-    reviewsCount: 380,
-    badge: 'Budget Favourite',
-    isVeg: true,
-    servingType: '4 Slices (Single Serving)',
-    description: 'Crispy baked hand-stretched dough base spread with tangy herb tomato marinara, crunchy sweet red onions, and 100% mozzarella cheese pull.',
-    ingredients: ['Mozzarella Cheese', 'Red Onions', 'Herb Marinara', 'Oregano Seasoning'],
-    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80',
-    prepTime: '8 mins',
-    calories: '270 kcal'
+    "id": "choco-cold-coffee",
+    "name": "Choco Cold Coffee",
+    "category": "cold-coffee",
+    "categoryLabel": "Cold Coffee",
+    "image": "/assets/menu/cold-coffee.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'double-paneer-makhni-pizza',
-    name: 'Double Paneer Makhni Pizza',
-    category: 'pizzas-wraps',
-    price: 309,
-    originalPrice: 380,
-    rating: 5.0,
-    reviewsCount: 520,
-    badge: 'Punjabi Fusion Star',
-    isVeg: true,
-    spiceLevel: 2,
-    servingType: 'Medium Pizza (6 Slices)',
-    description: 'Rich buttery Punjabi makhni gravy base loaded with double cubes of soft cottage cheese, bell peppers, spicy red paprika, and bubbling mozzarella.',
-    ingredients: ['Double Paneer Cubes', 'Makhni Butter Sauce', 'Red Paprika', 'Bell Peppers', 'Mozzarella'],
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80',
-    prepTime: '10 mins',
-    calories: '450 kcal'
+    "id": "brownie-cold-coffee",
+    "name": "Brownie Cold Coffee",
+    "category": "cold-coffee",
+    "categoryLabel": "Cold Coffee",
+    "image": "/assets/menu/cold-coffee.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'veggie-supreme-pizza',
-    name: 'Veggie Supreme Farm Pizza',
-    category: 'pizzas-wraps',
-    price: 319,
-    originalPrice: 399,
-    rating: 4.9,
-    reviewsCount: 460,
-    badge: 'Fully Loaded',
-    isVeg: true,
-    servingType: 'Medium Pizza (6 Slices)',
-    description: 'Loaded with bell peppers, button mushrooms, crisp broccoli, golden corn, paneer cubes, red onions, sliced jalapeños, and black Spanish olives.',
-    ingredients: ['Broccoli & Mushroom', 'Paneer & Corn', 'Black Olives & Jalapeños', 'Mozzarella'],
-    image: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=800&q=80',
-    prepTime: '10 mins',
-    calories: '420 kcal'
+    "id": "biscoff-cold-coffee",
+    "name": "Biscoff Cold Coffee",
+    "category": "cold-coffee",
+    "categoryLabel": "Cold Coffee",
+    "image": "/assets/menu/cold-coffee.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'desi-paneer-wrap',
-    name: 'Desi Tandoori Paneer Wrap',
-    category: 'pizzas-wraps',
-    price: 129,
-    originalPrice: 155,
-    rating: 4.9,
-    reviewsCount: 390,
-    badge: 'Quick Grab',
-    isVeg: true,
-    spiceLevel: 2,
-    servingType: 'Grilled Tortilla Roll',
-    description: 'Soft whole wheat paratha wrap stuffed with marinated tandoori cottage cheese cubes, crunchy bell peppers, mint yogurt sauce, and pickled onions.',
-    ingredients: ['Tandoori Paneer', 'Mint Yogurt Sauce', 'Bell Peppers & Onions', 'Soft Paratha'],
-    image: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80',
-    prepTime: '6 mins',
-    calories: '280 kcal'
-  },
-
-  // 6. Sandwiches & Maggi
-  {
-    id: 'bombay-kaccha-sandwich',
-    name: 'Bombay Kaccha Vegetable Sandwich',
-    category: 'sandwiches-maggi',
-    price: 109,
-    originalPrice: 130,
-    rating: 4.8,
-    reviewsCount: 470,
-    badge: 'Street Legend',
-    isVeg: true,
-    servingType: '4-Slice Stack with Green Chutney',
-    description: 'Mumbai street style raw sandwich layered with spiced potatoes, beetroots, cucumbers, tomatoes, sweet onion rings, and fiery green mint-coriander chutney.',
-    ingredients: ['Spiced Potatoes', 'Fresh Beetroot & Cucumber', 'Mint-Coriander Chutney', 'Butter Bread'],
-    image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80',
-    prepTime: '5 mins',
-    calories: '210 kcal'
+    "id": "cb-special-coffee",
+    "name": "CB Special Coffee",
+    "category": "cold-coffee",
+    "categoryLabel": "Cold Coffee",
+    "image": "/assets/menu/cold-coffee.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'paneer-takatak-sandwich',
-    name: 'Paneer Takatak Grilled Sandwich',
-    category: 'sandwiches-maggi',
-    price: 119,
-    originalPrice: 145,
-    rating: 4.9,
-    reviewsCount: 510,
-    badge: 'Top Grilled',
-    isVeg: true,
-    spiceLevel: 2,
-    servingType: 'Grilled Triangles with Crisps',
-    description: 'Golden grilled sandwich stuffed with tawa paneer bhurji cooked with onions, tomatoes, green chillies, and melted cheese.',
-    ingredients: ['Tawa Paneer Bhurji', 'Grated Cheese', 'Green Chillies', 'Butter Toasted Bread'],
-    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80',
-    prepTime: '6 mins',
-    calories: '290 kcal'
+    "id": "strawberry-shake",
+    "name": "Strawberry Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'double-masala-maggie',
-    name: 'Double Masala Vegetable Maggi',
-    category: 'sandwiches-maggi',
-    price: 79,
-    originalPrice: 99,
-    rating: 4.9,
-    reviewsCount: 650,
-    badge: 'Midnight Craving',
-    isVeg: true,
-    spiceLevel: 2,
-    servingType: 'Hot Steaming Bowl',
-    description: 'India’s favorite noodles cooked slow with extra tastemaker masala, green peas, carrots, sweet corn, and a pat of Amul butter on top.',
-    ingredients: ['Maggi Noodles', 'Double Tastemaker Masala', 'Diced Veggies', 'Amul Butter'],
-    image: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=800&q=80',
-    prepTime: '5 mins',
-    calories: '220 kcal'
+    "id": "vanilla-shake",
+    "name": "Vanilla Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'cheese-butter-maggie',
-    name: 'Loaded Cheese & Butter Maggi',
-    category: 'sandwiches-maggi',
-    price: 129,
-    originalPrice: 150,
-    rating: 5.0,
-    reviewsCount: 490,
-    badge: 'Super Rich',
-    isVeg: true,
-    servingType: 'Cheesy Steaming Bowl',
-    description: 'Velvety cooked noodles blended with melted cheddar and mozzarella cheese, sprinkled with chili flakes and oregano.',
-    ingredients: ['Maggi Noodles', 'Melted Cheddar & Mozzarella', 'Oregano & Chili Flakes', 'Pure Butter'],
-    image: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=800&q=80',
-    prepTime: '6 mins',
-    calories: '310 kcal'
+    "id": "blueberry-shake",
+    "name": "Blueberry Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
   },
   {
-    id: 'maska-bun',
-    name: 'Mumbai Toasted Maska Bun',
-    category: 'sandwiches-maggi',
-    price: 29,
-    originalPrice: 40,
-    rating: 4.8,
-    reviewsCount: 540,
-    badge: 'Chai Companion',
-    isVeg: true,
-    servingType: 'Warm Split Bun with Soft Butter',
-    description: 'Freshly baked pillowy pav toasted gently on tawa with generous dollops of salted butter and a touch of sweetness. The classic chai companion.',
-    ingredients: ['Freshly Baked Pav', 'Whipped Salted Butter', 'Cardamom Dust'],
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80',
-    prepTime: '3 mins',
-    calories: '160 kcal'
+    "id": "kitkat-shake",
+    "name": "Kitkat Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "caramel-shake",
+    "name": "Caramel Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "biscoff-shake",
+    "name": "Biscoff Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "rasmalai-shake",
+    "name": "Rasmalai Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 149
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "banana-shake",
+    "name": "Banana Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 149
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "butterscotch-shake",
+    "name": "Butterscotch Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "black-currant-shake",
+    "name": "Black Currant Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "oreo-milk-shake",
+    "name": "Oreo Milk Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "brownie-shake",
+    "name": "Brownie Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "brownie-shake-2",
+    "name": "Brownie Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "nutella-shake",
+    "name": "Nutella Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "mango-shake",
+    "name": "Mango Shake",
+    "category": "shakes",
+    "categoryLabel": "Shakes",
+    "image": "/assets/menu/shakes.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 149
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "nimbu-pani",
+    "name": "Nimbu Pani",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 70
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "fresh-lime-soda",
+    "name": "Fresh Lime Soda",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 89
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "masala-lemonade",
+    "name": "Masala Lemonade",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "watermelon-mojito",
+    "name": "Watermelon Mojito",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "peach-ice-tea",
+    "name": "Peach Ice Tea",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "jamun-mojito",
+    "name": "Jamun Mojito",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "chilli-guava",
+    "name": "Chilli Guava",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "lemon-ice-tea",
+    "name": "Lemon Ice Tea",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 89
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "lemonade",
+    "name": "Lemonade",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "virgin-mojito",
+    "name": "Virgin Mojito",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "blueberry-mojito",
+    "name": "Blueberry Mojito",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "green-apple",
+    "name": "Green Apple",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "peach-mojito",
+    "name": "Peach Mojito",
+    "category": "mocktails",
+    "categoryLabel": "Mocktails & Mojito",
+    "image": "/assets/menu/mocktails.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "gurh-doodh",
+    "name": "Gurh Doodh",
+    "category": "hot-milk",
+    "categoryLabel": "Hot Milk",
+    "image": "/assets/menu/hot-milk.png",
+    "variants": [
+      {
+        "size": "Medium",
+        "price": 50
+      },
+      {
+        "size": "Large",
+        "price": 65
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "elaichi-doodh",
+    "name": "Elaichi Doodh",
+    "category": "hot-milk",
+    "categoryLabel": "Hot Milk",
+    "image": "/assets/menu/hot-milk.png",
+    "variants": [
+      {
+        "size": "Medium",
+        "price": 55
+      },
+      {
+        "size": "Large",
+        "price": 70
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "kesar-doodh",
+    "name": "Kesar Doodh",
+    "category": "hot-milk",
+    "categoryLabel": "Hot Milk",
+    "image": "/assets/menu/hot-milk.png",
+    "variants": [
+      {
+        "size": "Medium",
+        "price": 55
+      },
+      {
+        "size": "Large",
+        "price": 70
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "gurh-elaichi-doodh",
+    "name": "Gurh + Elaichi Doodh",
+    "category": "hot-milk",
+    "categoryLabel": "Hot Milk",
+    "image": "/assets/menu/hot-milk.png",
+    "variants": [
+      {
+        "size": "Medium",
+        "price": 60
+      },
+      {
+        "size": "Large",
+        "price": 75
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "gurh-cold-doodh",
+    "name": "Gurh Cold Doodh",
+    "category": "cold-milk",
+    "categoryLabel": "Cold Milk",
+    "image": "/assets/menu/cold-milk.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "elaichi-cold-doodh",
+    "name": "Elaichi Cold Doodh",
+    "category": "cold-milk",
+    "categoryLabel": "Cold Milk",
+    "image": "/assets/menu/cold-milk.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "kesar-cold-doodh",
+    "name": "Kesar Cold Doodh",
+    "category": "cold-milk",
+    "categoryLabel": "Cold Milk",
+    "image": "/assets/menu/cold-milk.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "gurh-elaichi-cold-doodh",
+    "name": "Gurh + Elaichi Cold Doodh",
+    "category": "cold-milk",
+    "categoryLabel": "Cold Milk",
+    "image": "/assets/menu/cold-milk.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "meethi-lassi",
+    "name": "Meethi Lassi",
+    "category": "lassi",
+    "categoryLabel": "Lassi",
+    "image": "/assets/menu/lassi.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 69
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "namkeen-lassi",
+    "name": "Namkeen Lassi",
+    "category": "lassi",
+    "categoryLabel": "Lassi",
+    "image": "/assets/menu/lassi.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 69
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "mango-lassi",
+    "name": "Mango Lassi",
+    "category": "lassi",
+    "categoryLabel": "Lassi",
+    "image": "/assets/menu/lassi.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 89
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "aloo-tikki-burger",
+    "name": "Aloo Tikki Burger",
+    "category": "burgers",
+    "categoryLabel": "Burgers",
+    "image": "/assets/menu/burgers.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 59
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "veg-cheese-burger",
+    "name": "Veg. Cheese Burger",
+    "category": "burgers",
+    "categoryLabel": "Burgers",
+    "image": "/assets/menu/burgers.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "veg-paneer-burger",
+    "name": "Veg. Paneer Burger",
+    "category": "burgers",
+    "categoryLabel": "Burgers",
+    "image": "/assets/menu/burgers.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cb-special-burger",
+    "name": "CB Special Burger",
+    "category": "burgers",
+    "categoryLabel": "Burgers",
+    "image": "/assets/menu/burgers.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "crispy-veg-burger",
+    "name": "Crispy Veg Burger",
+    "category": "burgers",
+    "categoryLabel": "Burgers",
+    "image": "/assets/menu/burgers.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 79
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "mexican-burger",
+    "name": "Mexican Burger",
+    "category": "burgers",
+    "categoryLabel": "Burgers",
+    "image": "/assets/menu/burgers.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "korean-spicy-paneer-burger",
+    "name": "Korean Spicy Paneer Burger",
+    "category": "burgers",
+    "categoryLabel": "Burgers",
+    "image": "/assets/menu/burgers.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "plain-fries",
+    "name": "Plain Fries",
+    "category": "fries",
+    "categoryLabel": "Fries",
+    "image": "/assets/menu/fries.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "peri-peri-fries",
+    "name": "Peri Peri Fries",
+    "category": "fries",
+    "categoryLabel": "Fries",
+    "image": "/assets/menu/fries.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-fries",
+    "name": "Cheese Fries",
+    "category": "fries",
+    "categoryLabel": "Fries",
+    "image": "/assets/menu/fries.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 149
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "masala-fries",
+    "name": "Masala Fries",
+    "category": "fries",
+    "categoryLabel": "Fries",
+    "image": "/assets/menu/fries.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "mix-loaded-fries",
+    "name": "Mix Loaded Fries",
+    "category": "fries",
+    "categoryLabel": "Fries",
+    "image": "/assets/menu/fries.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "maska-bun",
+    "name": "Maska Bun",
+    "category": "sides",
+    "categoryLabel": "Sides",
+    "image": "/assets/menu/sides.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 29
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "garlic-bun",
+    "name": "Garlic Bun",
+    "category": "sides",
+    "categoryLabel": "Sides",
+    "image": "/assets/menu/sides.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 39
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "garlic-bun-2",
+    "name": "Garlic Bun",
+    "category": "sides",
+    "categoryLabel": "Sides",
+    "image": "/assets/menu/sides.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-shots",
+    "name": "Cheese Shots",
+    "category": "sides",
+    "categoryLabel": "Sides",
+    "image": "/assets/menu/sides.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "hara-bhara-kabab",
+    "name": "Hara Bhara Kabab",
+    "category": "sides",
+    "categoryLabel": "Sides",
+    "image": "/assets/menu/sides.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "veggie-finger",
+    "name": "Veggie Finger",
+    "category": "sides",
+    "categoryLabel": "Sides",
+    "image": "/assets/menu/sides.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-finger",
+    "name": "Cheese Finger",
+    "category": "sides",
+    "categoryLabel": "Sides",
+    "image": "/assets/menu/sides.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "paneer-finger",
+    "name": "Paneer Finger",
+    "category": "sides",
+    "categoryLabel": "Sides",
+    "image": "/assets/menu/sides.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cigar-cheese-roll",
+    "name": "Cigar Cheese Roll",
+    "category": "sides",
+    "categoryLabel": "Sides",
+    "image": "/assets/menu/sides.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 149
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "sweet-corn",
+    "name": "Sweet Corn",
+    "category": "healthy",
+    "categoryLabel": "Healthy Feast",
+    "image": "/assets/menu/healthy.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 49
+      },
+      {
+        "size": "Large",
+        "price": 69
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "masala-sweet-corn",
+    "name": "Masala Sweet Corn",
+    "category": "healthy",
+    "categoryLabel": "Healthy Feast",
+    "image": "/assets/menu/healthy.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 59
+      },
+      {
+        "size": "Large",
+        "price": 79
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "onion-sweet-corn",
+    "name": "Onion Sweet Corn",
+    "category": "healthy",
+    "categoryLabel": "Healthy Feast",
+    "image": "/assets/menu/healthy.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 59
+      },
+      {
+        "size": "Large",
+        "price": 79
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "peanut-chaat",
+    "name": "Peanut Chaat",
+    "category": "healthy",
+    "categoryLabel": "Healthy Feast",
+    "image": "/assets/menu/healthy.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "poha",
+    "name": "Poha",
+    "category": "healthy",
+    "categoryLabel": "Healthy Feast",
+    "image": "/assets/menu/healthy.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "peanut-corn-chaat",
+    "name": "Peanut Corn Chaat",
+    "category": "healthy",
+    "categoryLabel": "Healthy Feast",
+    "image": "/assets/menu/healthy.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "gym-salad",
+    "name": "Gym Salad",
+    "category": "healthy",
+    "categoryLabel": "Healthy Feast",
+    "image": "/assets/menu/healthy.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 169
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "virat-kohali-salad",
+    "name": "Virat Kohali Salad",
+    "category": "healthy",
+    "categoryLabel": "Healthy Feast",
+    "image": "/assets/menu/healthy.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 199
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "plain-maggie",
+    "name": "Plain Maggie",
+    "category": "maggie",
+    "categoryLabel": "Maggie",
+    "image": "/assets/menu/maggie.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 69
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "double-masala-maggie",
+    "name": "Double Masala Maggie",
+    "category": "maggie",
+    "categoryLabel": "Maggie",
+    "image": "/assets/menu/maggie.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 79
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "vegetable-maggie",
+    "name": "Vegetable Maggie",
+    "category": "maggie",
+    "categoryLabel": "Maggie",
+    "image": "/assets/menu/maggie.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "schezwan-maggie",
+    "name": "Schezwan Maggie",
+    "category": "maggie",
+    "categoryLabel": "Maggie",
+    "image": "/assets/menu/maggie.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-butter-maggie",
+    "name": "Cheese & Butter Maggie",
+    "category": "maggie",
+    "categoryLabel": "Maggie",
+    "image": "/assets/menu/maggie.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "corn-cheese-maggie",
+    "name": "Corn Cheese Maggie",
+    "category": "maggie",
+    "categoryLabel": "Maggie",
+    "image": "/assets/menu/maggie.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cb-special-maggie",
+    "name": "CB Special Maggie",
+    "category": "maggie",
+    "categoryLabel": "Maggie",
+    "image": "/assets/menu/maggie.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "aloo-wrap",
+    "name": "Aloo Wrap",
+    "category": "wraps",
+    "categoryLabel": "Wraps",
+    "image": "/assets/menu/wraps.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "crunchy-veg-wrap",
+    "name": "Crunchy Veg Wrap",
+    "category": "wraps",
+    "categoryLabel": "Wraps",
+    "image": "/assets/menu/wraps.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "peri-peri-wrap",
+    "name": "Peri Peri Wrap",
+    "category": "wraps",
+    "categoryLabel": "Wraps",
+    "image": "/assets/menu/wraps.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "mexican-wrap",
+    "name": "Mexican Wrap",
+    "category": "wraps",
+    "categoryLabel": "Wraps",
+    "image": "/assets/menu/wraps.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "desi-paneer-wrap",
+    "name": "Desi Paneer Wrap",
+    "category": "wraps",
+    "categoryLabel": "Wraps",
+    "image": "/assets/menu/wraps.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-onion-pizza-7",
+    "name": "Cheese Onion Pizza 7”",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "7”",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-mushroom-pizza-7",
+    "name": "Cheese Mushroom Pizza 7”",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "7”",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-pizza-7",
+    "name": "Cheese Pizza 7”",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "7”",
+        "price": 100
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "capsicum-pizza-7",
+    "name": "Capsicum Pizza 7”",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "7”",
+        "price": 101
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-paneer-pizza-7",
+    "name": "Cheese Paneer Pizza 7”",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "7”",
+        "price": 102
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-margarita-pizza-7",
+    "name": "Cheese Margarita Pizza 7”",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "7”",
+        "price": 103
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "onion-paneer-pizza",
+    "name": "Onion + Paneer Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "onion-capsicum-pizza",
+    "name": "Onion + Capsicum Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 120
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "onion-corn-pizza",
+    "name": "Onion + Corn Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 121
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "capsicum-corn-pizza",
+    "name": "Capsicum + Corn Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 122
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "classic-veg-pizza",
+    "name": "Classic Veg Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 123
+      },
+      {
+        "size": "Regular",
+        "price": 124
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "popular-veg-pizza",
+    "name": "Popular Veg Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 125
+      },
+      {
+        "size": "Regular",
+        "price": 126
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "veggie-feast-pizza",
+    "name": "Veggie Feast Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 127
+      },
+      {
+        "size": "Regular",
+        "price": 128
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "multi-topping-pizza",
+    "name": "Multi Topping Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "farmer-pizza",
+    "name": "Farmer Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 130
+      },
+      {
+        "size": "Regular",
+        "price": 131
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "double-paneer-makhni-pizza",
+    "name": "Double Paneer Makhni Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 132
+      },
+      {
+        "size": "Regular",
+        "price": 133
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "veg-delight-pizza",
+    "name": "Veg Delight Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 134
+      },
+      {
+        "size": "Regular",
+        "price": 135
+      },
+      {
+        "size": "Regular",
+        "price": 136
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "veggie-supreme-pizza",
+    "name": "Veggie Supreme Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 137
+      },
+      {
+        "size": "Regular",
+        "price": 138
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "peppy-paneer-pizza",
+    "name": "Peppy Paneer Pizza",
+    "category": "pizza",
+    "categoryLabel": "Pizza",
+    "image": "/assets/menu/pizza.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      },
+      {
+        "size": "Regular",
+        "price": 140
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "aloo-toast-sandwich",
+    "name": "Aloo Toast Sandwich",
+    "category": "sandwiches",
+    "categoryLabel": "Sandwiches",
+    "image": "/assets/menu/sandwiches.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "corn-masala-sandwich",
+    "name": "Corn Masala Sandwich",
+    "category": "sandwiches",
+    "categoryLabel": "Sandwiches",
+    "image": "/assets/menu/sandwiches.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "paneer-takatak-sandwich",
+    "name": "Paneer Takatak Sandwich",
+    "category": "sandwiches",
+    "categoryLabel": "Sandwiches",
+    "image": "/assets/menu/sandwiches.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "paneer-special-sandwich",
+    "name": "Paneer Special Sandwich",
+    "category": "sandwiches",
+    "categoryLabel": "Sandwiches",
+    "image": "/assets/menu/sandwiches.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cb-special-sandwich",
+    "name": "CB Special Sandwich",
+    "category": "sandwiches",
+    "categoryLabel": "Sandwiches",
+    "image": "/assets/menu/sandwiches.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cb-special-sandwich-2",
+    "name": "CB Special Sandwich",
+    "category": "sandwiches",
+    "categoryLabel": "Sandwiches",
+    "image": "/assets/menu/sandwiches.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "veggie-grill-sandwich",
+    "name": "Veggie Grill Sandwich",
+    "category": "sandwiches",
+    "categoryLabel": "Sandwiches",
+    "image": "/assets/menu/sandwiches.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 109
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "diet-sandwich",
+    "name": "Diet Sandwich",
+    "category": "sandwiches",
+    "categoryLabel": "Sandwiches",
+    "image": "/assets/menu/sandwiches.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "hara-bhara-sandwich",
+    "name": "Hara Bhara Sandwich",
+    "category": "sandwiches",
+    "categoryLabel": "Sandwiches",
+    "image": "/assets/menu/sandwiches.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "home-style-pasta",
+    "name": "Home Style Pasta",
+    "category": "pasta",
+    "categoryLabel": "Pasta",
+    "image": "/assets/menu/pasta.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 129
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "white-sauce-pasta",
+    "name": "White Sauce Pasta",
+    "category": "pasta",
+    "categoryLabel": "Pasta",
+    "image": "/assets/menu/pasta.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 169
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "mix-sauce-pasta",
+    "name": "Mix Sauce Pasta",
+    "category": "pasta",
+    "categoryLabel": "Pasta",
+    "image": "/assets/menu/pasta.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 189
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "red-sauce-pasta",
+    "name": "Red Sauce Pasta",
+    "category": "pasta",
+    "categoryLabel": "Pasta",
+    "image": "/assets/menu/pasta.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 139
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "plain-garlic-toast",
+    "name": "Plain Garlic Toast",
+    "category": "garlic-bread",
+    "categoryLabel": "Garlic Bread",
+    "image": "/assets/menu/garlic-bread.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 69
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "round-cheese-garlic",
+    "name": "Round Cheese Garlic",
+    "category": "garlic-bread",
+    "categoryLabel": "Garlic Bread",
+    "image": "/assets/menu/garlic-bread.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "exotic-garlic-bread",
+    "name": "Exotic Garlic Bread",
+    "category": "garlic-bread",
+    "categoryLabel": "Garlic Bread",
+    "image": "/assets/menu/garlic-bread.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 119
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "paneer-stuffed-garlic-bread",
+    "name": "Paneer Stuffed Garlic Bread",
+    "category": "garlic-bread",
+    "categoryLabel": "Garlic Bread",
+    "image": "/assets/menu/garlic-bread.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 169
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "plain-garlic-sticks",
+    "name": "Plain Garlic Sticks",
+    "category": "garlic-bread",
+    "categoryLabel": "Garlic Bread",
+    "image": "/assets/menu/garlic-bread.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "garlic-shots",
+    "name": "Garlic Shots",
+    "category": "garlic-bread",
+    "categoryLabel": "Garlic Bread",
+    "image": "/assets/menu/garlic-bread.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 99
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "stuffed-garlic-bread",
+    "name": "Stuffed Garlic Bread",
+    "category": "garlic-bread",
+    "categoryLabel": "Garlic Bread",
+    "image": "/assets/menu/garlic-bread.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 169
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "cheese-calzone",
+    "name": "Cheese Calzone",
+    "category": "garlic-bread",
+    "categoryLabel": "Garlic Bread",
+    "image": "/assets/menu/garlic-bread.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 179
+      }
+    ],
+    "isVeg": true
+  },
+  {
+    "id": "desi-ghee-churi",
+    "name": "Desi Ghee Churi",
+    "category": "churi",
+    "categoryLabel": "Signature Desi Ghee Churi",
+    "image": "/assets/menu/churi.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 60
+      }
+    ],
+    "isVeg": true
   }
 ];
