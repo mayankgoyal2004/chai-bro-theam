@@ -29,7 +29,7 @@ export const AboutPage = () => {
   return (
     <div className="page-about" style={{ paddingTop: '100px' }}>
       {/* Page Hero */}
-      <section className="about-hero-section section-padding text-center" style={{ background: 'linear-gradient(180deg, #FAF6F0 0%, #F3ECE1 100%)' }}>
+      <section className="about-hero-section section-padding text-center" style={{ background: 'var(--gradient-warm-bg)' }}>
         <div className="container">
           <span className="badge-pill badge-terracotta mb-3">PEACE IN EVERY SIP</span>
           <h1 className="section-title text-4xl md:text-5xl font-extrabold text-heading">

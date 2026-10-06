@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Coffee, MapPin, Phone, Mail, Heart } from 'lucide-react';
+import brandLogo from '../assets/brand.webp';
 
 export const Footer = () => {
   return (
@@ -10,9 +11,7 @@ export const Footer = () => {
         {/* Brand Col */}
         <div className="footer-brand-box">
           <Link to="/" className="nav-logo mb-3">
-            <div className="logo-badge">
-              <Coffee size={20} className="logo-cup-icon" />
-            </div>
+            <img src={brandLogo} alt="Chai Bro's Logo" className="nav-logo-img" />
             <div className="logo-text">
               <span className="logo-name">CHAI <span className="logo-accent">BRO’S</span></span>
               <span className="logo-sub">PEACE IN EVERY SIP</span>

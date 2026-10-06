@@ -1,56 +1,126 @@
 /* Chai Bro - Professional Modern Café Design System */
-/* Inspired by Gurh Laachi & Chai Churi: Warm Cream, Terracotta, Jaggery Gold & Cardamom Green */
+/* Official Brand Theme: 
+   🔴 Primary: Deep Red (#D62E0A)
+   🟠 Secondary: Saffron / Warm Orange (#F88E4B)
+   🟥 Dark: Dark Maroon (#791505)
+*/
 
 :root {
-  /* Warm Premium Palette */
-  --bg-primary: #FAF6F0;
-  --bg-secondary: #F3ECE1;
-  --bg-tertiary: #EBE0D2;
-  --bg-white: #FFFFFF;
-  --bg-card: #FFFFFF;
-  --bg-card-alt: #FCFAF7;
-  
-  /* Brand Accent Colors */
-  --terracotta: #BA4A24;
-  --terracotta-dark: #963817;
-  --terracotta-hover: #A63F1C;
-  --terracotta-light: #FBF0EB;
-  --terracotta-subtle: rgba(186, 74, 36, 0.08);
+  /* ==========================================================================
+     CORE BRAND PALETTE
+     ========================================================================== */
+  /* Primary: Deep Red */
+  --primary: #D62E0A;
+  --primary-rgb: 214, 46, 10;
+  --primary-hover: #BF2807;
+  --primary-dark: #A12004;
+  --primary-light: #FDF1EC;
+  --primary-subtle: rgba(214, 46, 10, 0.08);
+  --primary-glow: rgba(214, 46, 10, 0.28);
+  --border-primary: rgba(214, 46, 10, 0.24);
 
-  --gurh-amber: #D97706;
-  --gurh-gold: #F59E0B;
-  --gurh-light: #FEF3C7;
-  --gurh-dark: #B45309;
+  /* Secondary: Saffron / Warm Orange */
+  --secondary: #F88E4B;
+  --secondary-rgb: 248, 142, 75;
+  --secondary-hover: #E87A33;
+  --secondary-dark: #D4661D;
+  --secondary-light: #FEF4ED;
+  --secondary-subtle: rgba(248, 142, 75, 0.12);
+  --secondary-glow: rgba(248, 142, 75, 0.35);
+  --border-secondary: rgba(248, 142, 75, 0.3);
 
-  --cardamom-green: #1D6F42;
-  --cardamom-light: #E8F5EE;
+  /* Dark: Dark Maroon */
+  --dark: #791505;
+  --dark-maroon: #791505;
+  --dark-maroon-rgb: 121, 21, 5;
+  --dark-hover: #611003;
+  --dark-deep: #430A01;
+  --dark-surface: #791505;
+  --dark-light: #F8EDE9;
+  --dark-subtle: rgba(121, 21, 5, 0.08);
+  --dark-glow: rgba(121, 21, 5, 0.35);
+  --border-dark: rgba(121, 21, 5, 0.22);
+
+  /* Compatibility Aliases for Codebase */
+  --terracotta: #D62E0A;
+  --terracotta-dark: #791505;
+  --terracotta-hover: #BF2807;
+  --terracotta-light: #FDF1EC;
+  --terracotta-subtle: rgba(214, 46, 10, 0.08);
+  --border-terracotta: rgba(214, 46, 10, 0.24);
+
+  --gurh-amber: #F88E4B;
+  --gurh-gold: #F88E4B;
+  --gurh-light: #FEF4ED;
+  --gurh-dark: #D4661D;
+
+  --cardamom-green: #15803D;
+  --cardamom-light: #EBF7EE;
   --cardamom-emerald: #10B981;
 
-  /* Typography Colors */
-  --text-heading: #1C130E;
-  --text-primary: #2B1E17;
-  --text-body: #4A3B32;
-  --text-muted: #7A695E;
-  --text-light: #9C8C81;
+  /* ==========================================================================
+     SURFACES & BACKGROUNDS
+     ========================================================================== */
+  --bg-primary: #FAF6F1;
+  --bg-secondary: #F4ECE3;
+  --bg-tertiary: #EFE4D7;
+  --bg-white: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-alt: #FCF8F4;
+  --bg-dark-maroon: #791505;
+  --bg-dark-surface: #5C0F02;
 
-  /* Borders & Dividers */
-  --border-subtle: #EADCCE;
-  --border-light: #F0E5D8;
-  --border-terracotta: rgba(186, 74, 36, 0.25);
+  /* ==========================================================================
+     TYPOGRAPHY COLORS
+     ========================================================================== */
+  --text-heading: #240803;
+  --text-primary: #34160E;
+  --text-body: #4E342B;
+  --text-muted: #7D6157;
+  --text-light: #A58B82;
+  --text-on-dark: #FFFFFF;
+  --text-on-dark-muted: #F3DFD8;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(43, 30, 23, 0.04);
-  --shadow-md: 0 8px 24px rgba(43, 30, 23, 0.07);
-  --shadow-lg: 0 16px 40px rgba(43, 30, 23, 0.1);
-  --shadow-hover: 0 20px 45px rgba(186, 74, 36, 0.15);
+  /* ==========================================================================
+     BORDERS & DIVIDERS
+     ========================================================================== */
+  --border-subtle: #EBDDCF;
+  --border-light: #F2E7DC;
+  --border-highlight: rgba(248, 142, 75, 0.45);
 
-  /* Fonts */
+  /* ==========================================================================
+     SHADOW SYSTEM (Warm maroon & deep red undertones)
+     ========================================================================== */
+  --shadow-xs: 0 1px 3px rgba(121, 21, 5, 0.04);
+  --shadow-sm: 0 2px 8px rgba(121, 21, 5, 0.05);
+  --shadow-md: 0 8px 24px rgba(121, 21, 5, 0.08);
+  --shadow-lg: 0 16px 40px rgba(121, 21, 5, 0.12);
+  --shadow-hover: 0 20px 45px rgba(214, 46, 10, 0.2);
+  --shadow-glow: 0 0 32px rgba(248, 142, 75, 0.35);
+  --shadow-dark: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+  /* ==========================================================================
+     GRADIENTS
+     ========================================================================== */
+  --gradient-primary: linear-gradient(135deg, #D62E0A 0%, #F88E4B 100%);
+  --gradient-primary-reverse: linear-gradient(135deg, #F88E4B 0%, #D62E0A 100%);
+  --gradient-dark: linear-gradient(135deg, #791505 0%, #460A01 100%);
+  --gradient-hero: linear-gradient(145deg, #791505 0%, #D62E0A 55%, #F88E4B 100%);
+  --gradient-saffron: linear-gradient(135deg, #F88E4B 0%, #FFA86B 100%);
+  --gradient-warm-bg: linear-gradient(180deg, #FAF6F1 0%, #F4ECE3 100%);
+
+  /* ==========================================================================
+     FONTS
+     ========================================================================== */
   --font-display: 'Playfair Display', Georgia, serif;
   --font-sans: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
-  /* Transitions */
+  /* ==========================================================================
+     TRANSITIONS
+     ========================================================================== */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -81,7 +151,7 @@ a {
 }
 
 a:hover {
-  color: var(--terracotta);
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -93,11 +163,11 @@ a:hover {
   background: var(--bg-secondary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #D9C5B2;
+  background: #DEC6B4;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--terracotta);
+  background: var(--primary);
 }
 
 /* Keyframe Animations */
@@ -120,8 +190,17 @@ a:hover {
   50% { transform: translateY(-8px); }
 }
 
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(248, 142, 75, 0.3); }
+  50% { box-shadow: 0 0 28px rgba(248, 142, 75, 0.65); }
+}
+
 .animate-float {
   animation: subtleFloat 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glowPulse 3s ease-in-out infinite;
 }
 
 .steam-path-1 {
@@ -135,12 +214,24 @@ a:hover {
 }
 
 /* Typography Helpers */
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.text-secondary {
+  color: var(--secondary) !important;
+}
+
+.text-dark-maroon {
+  color: var(--dark-maroon) !important;
+}
+
 .text-terracotta {
-  color: var(--terracotta);
+  color: var(--primary);
 }
 
 .text-gurh {
-  color: var(--gurh-amber);
+  color: var(--secondary);
 }
 
 .text-cardamom {
@@ -161,27 +252,35 @@ a:hover {
   width: fit-content;
 }
 
+.badge-primary,
 .badge-terracotta {
-  background: var(--terracotta-light);
-  color: var(--terracotta);
-  border: 1px solid var(--border-terracotta);
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--border-primary);
 }
 
+.badge-secondary,
 .badge-gurh {
-  background: var(--gurh-light);
-  color: var(--gurh-dark);
-  border: 1px solid rgba(217, 119, 6, 0.3);
+  background: var(--secondary-light);
+  color: var(--secondary-dark);
+  border: 1px solid var(--border-secondary);
+}
+
+.badge-dark {
+  background: var(--dark-light);
+  color: var(--dark-maroon);
+  border: 1px solid var(--border-dark);
 }
 
 .badge-cardamom {
   background: var(--cardamom-light);
   color: var(--cardamom-green);
-  border: 1px solid rgba(29, 111, 66, 0.25);
+  border: 1px solid rgba(21, 128, 61, 0.25);
 }
 
 /* Buttons */
 .btn-primary {
-  background: linear-gradient(135deg, #BA4A24 0%, #D97706 100%);
+  background: var(--gradient-primary);
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.2);
   font-weight: 700;
@@ -191,7 +290,7 @@ a:hover {
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(186, 74, 36, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(214, 46, 10, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   transition: all var(--transition-fast);
   text-decoration: none;
   font-size: 0.95rem;
@@ -199,7 +298,7 @@ a:hover {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(217, 119, 6, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(248, 142, 75, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   color: #FFFFFF;
 }
 
@@ -226,13 +325,13 @@ a:hover {
 
 .btn-secondary:hover {
   background: var(--bg-tertiary);
-  border-color: #D4C0AD;
-  color: var(--terracotta);
+  border-color: #DEC6B4;
+  color: var(--primary);
   transform: translateY(-2px);
 }
 
 .btn-accent {
-  background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+  background: var(--gradient-saffron);
   color: #FFFFFF;
   font-weight: 800;
   border-radius: 9999px;
@@ -242,14 +341,37 @@ a:hover {
   gap: 8px;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.35);
+  box-shadow: 0 6px 20px rgba(248, 142, 75, 0.35);
   transition: all var(--transition-fast);
   font-size: 0.9rem;
 }
 
 .btn-accent:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(217, 119, 6, 0.5);
+  box-shadow: 0 10px 26px rgba(248, 142, 75, 0.5);
+  color: #FFFFFF;
+}
+
+.btn-dark {
+  background: var(--gradient-dark);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 13px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(121, 21, 5, 0.4);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(121, 21, 5, 0.6);
   color: #FFFFFF;
 }
 

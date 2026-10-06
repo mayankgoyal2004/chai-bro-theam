@@ -32,7 +32,7 @@ export const HeroParticles = () => {
         speedY: Math.random() * 0.6 + 0.2,
         speedX: (Math.random() - 0.5) * 0.3,
         opacity: Math.random() * 0.6 + 0.2,
-        color: Math.random() > 0.4 ? 'rgba(217, 119, 6, ' : 'rgba(186, 74, 36, ', // Amber or Terracotta
+        color: Math.random() > 0.45 ? 'rgba(248, 142, 75, ' : 'rgba(214, 46, 10, ', // Saffron Orange or Deep Red
         pulse: Math.random() * Math.PI,
         pulseSpeed: Math.random() * 0.03 + 0.01,
       });
