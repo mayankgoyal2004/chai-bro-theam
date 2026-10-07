@@ -71,10 +71,6 @@ export const GalleryPage = () => {
     }
   ];
 
-  const filtered = activeFilter === 'all'
-    ? galleryItems
-    : galleryItems.filter(item => item.category === activeFilter);
-
   return (
     <div className="page-gallery" style={{ paddingTop: '100px' }}>
       {/* Page Hero */}
@@ -119,11 +115,11 @@ export const GalleryPage = () => {
               </div>
             </div>
 
-            <div style={{ borderRadius: '18px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+            <div style={{ borderRadius: '18px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', background: '#140d0a' }}>
               <img 
-                src="/assets/chaibros/original-front.webp" 
+                src="/assets/chaibros/original-night-1.webp" 
                 alt="Chai Bro's Storefront Booth No. 80 Sector 89 Mohali"
-                style={{ width: '100%', height: '360px', objectFit: 'cover', objectPosition: 'top center' }}
+                style={{ width: '100%', height: '360px', objectFit: 'cover', objectPosition: 'center 20%' }}
               />
             </div>
           </div>

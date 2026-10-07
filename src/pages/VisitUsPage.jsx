@@ -80,12 +80,13 @@ export const VisitUsPage = () => {
               boxShadow: 'var(--shadow-sm)'
             }}>
               <img 
-                src="/assets/chaibros/original-front.webp" 
+                src="/assets/chaibros/original-night-1.webp" 
                 alt="Chai Bro's Booth No. 80 Sector 89 Mohali Storefront"
                 style={{ 
                   width: '100%', 
                   height: '100%', 
                   objectFit: 'cover',
+                  objectPosition: 'center 20%',
                   display: 'block' 
                 }}
               />

@@ -1,11 +1,33 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { MENU_CATEGORIES, MENU_ITEMS } from '../data/menuData';
 import { MenuItemCard } from './MenuItemCard';
 import { Search, X, CheckCircle2, Coffee, Sparkles } from 'lucide-react';
 
 export const MenuSection = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCat = searchParams.get('category') || 'all';
+
+  const [activeCategory, setActiveCategory] = useState(initialCat);
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat) {
+      setActiveCategory(cat);
+    }
+  }, [searchParams]);
+
+  const handleCategorySelect = (catId) => {
+    setActiveCategory(catId);
+    if (catId === 'all') {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.delete('category');
+      setSearchParams(newParams);
+    } else {
+      setSearchParams({ category: catId });
+    }
+  };
 
   // Specific categories (excluding 'all')
   const specificCategories = useMemo(() => {
@@ -106,7 +128,7 @@ export const MenuSection = () => {
                 <button
                   key={cat.id}
                   type="button"
-                  onClick={() => setActiveCategory(cat.id)}
+                  onClick={() => handleCategorySelect(cat.id)}
                   className={`chai-cat-filter-btn ${activeCategory === cat.id ? 'active' : ''}`}
                 >
                   {cat.image && (
