@@ -325,10 +325,18 @@ export const FranchiseSection = () => {
                   <Link to="/privacy-policy" className="text-terracotta font-semibold hover:underline">Privacy Policy</Link>.
                 </p>
 
-                <div className="mt-3">
-                  <button type="submit" className="btn-primary w-full justify-center">
+                <div className="flex gap-3 mt-3 flex-wrap">
+                  <button type="submit" className="btn-primary flex-1 justify-center">
                     <span>Submit Enquiry</span>
                     <ArrowRight size={17} />
+                  </button>
+                  <button 
+                    type="button" 
+                    onClick={handleWhatsAppChat}
+                    className="btn-whatsapp flex-1 justify-center"
+                  >
+                    <MessageCircle size={18} />
+                    <span>WhatsApp</span>
                   </button>
                 </div>
               </form>
