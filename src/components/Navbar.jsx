@@ -22,10 +22,11 @@ export const Navbar = () => {
 
   const navLinks = [
     { label: 'Home', path: '/' },
-    { label: 'Our Story', path: '/about' },
     { label: 'Menu', path: '/menu' },
-    { label: 'Locations', path: '/locations' },
+    { label: 'Our Story', path: '/our-story' },
     { label: 'Franchise', path: '/franchise' },
+    { label: 'Gallery', path: '/gallery' },
+    { label: 'Visit Us', path: '/visit-us' },
     { label: 'Contact', path: '/contact' },
   ];
 
@@ -77,9 +78,9 @@ export const Navbar = () => {
 
           {/* Right Action */}
           <div className="nav-actions-group">
-            <Link to="/locations" className="nav-action-text hide-mobile">
+            <Link to="/visit-us" className="nav-action-text hide-mobile">
               <MapPin size={17} className="text-terracotta" />
-              <span>Outlets</span>
+              <span>Visit Us</span>
             </Link>
 
             <Link

@@ -1,5 +1,21 @@
 import React, { useState } from 'react';
-import { Store, TrendingUp, CheckCircle2, ShieldCheck, ArrowRight, Sparkles, Building2, PhoneCall } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { 
+  Store, 
+  TrendingUp, 
+  CheckCircle2, 
+  ShieldCheck, 
+  ArrowRight, 
+  Sparkles, 
+  Building2, 
+  PhoneCall, 
+  MessageSquare,
+  MessageCircle,
+  Compass,
+  Phone,
+  Mail,
+  MapPin
+} from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const FranchiseSection = () => {
@@ -8,7 +24,7 @@ export const FranchiseSection = () => {
     phone: '',
     email: '',
     city: '',
-    budget: '20-30 Lakhs',
+    budget: '₹22 – ₹28 Lakhs (High Street Café)',
     message: ''
   });
 
@@ -20,7 +36,7 @@ export const FranchiseSection = () => {
 
     try {
       confetti({
-        particleCount: 100,
+        particleCount: 90,
         spread: 70,
         origin: { y: 0.6 }
       });
@@ -29,6 +45,11 @@ export const FranchiseSection = () => {
     }
 
     setSubmitted(true);
+  };
+
+  const handleWhatsAppChat = () => {
+    const text = `Hello Chai Bro's! I am interested in a Franchise opportunity.%0A%0A*Name:* ${encodeURIComponent(formData.name || 'Enquirer')}%0A*Phone:* ${encodeURIComponent(formData.phone || 'N/A')}%0A*City:* ${encodeURIComponent(formData.city || 'N/A')}%0A*Format/Budget:* ${encodeURIComponent(formData.budget)}%0A*Message:* ${encodeURIComponent(formData.message || 'Looking for details')}`;
+    window.open(`https://wa.me/918700087687?text=${text}`, '_blank');
   };
 
   const models = [
@@ -62,20 +83,21 @@ export const FranchiseSection = () => {
   return (
     <section id="franchise" className="section-padding franchise-section">
       <div className="container">
-        {/* Section Header */}
+        
+        {/* Main Section Header */}
         <div className="section-header text-center">
           <span className="badge-pill badge-gurh mb-2">
-            PARTNER WITH CHAI BRO’S
+            FRANCHISE ENQUIRIES
           </span>
           <h1 className="section-title">
-            Bring the Chai Bro’s Experience <span className="text-terracotta font-serif italic">To A New Neighbourhood</span>
+            Let’s Talk <span className="text-terracotta font-serif italic">Over Chai</span>
           </h1>
           <p className="section-subtitle">
-            Warm sips, tasty bites and brighter breaks. With our proven franchise model, you own and operate your outlet with end-to-end recipe standardization, store design, and launch support.
+            Have a location in mind for Chai Bro’s? Tell us about your city, your space and your plans. Bring India’s fastest-growing modern chai chain to your neighbourhood.
           </p>
         </div>
 
-        {/* 3 Formats Cards */}
+        {/* 3 Store Formats Cards Grid */}
         <div className="franchise-cards-grid">
           {models.map((m, idx) => (
             <div 
@@ -135,74 +157,111 @@ export const FranchiseSection = () => {
           </div>
         </div>
 
-        {/* Enquiry Form Card */}
-        <div className="enquiry-card-wrapper">
+        {/* Split Enquiry Card Wrapper (Incorporating 3 Steps from chaibros.online) */}
+        <div className="enquiry-card-wrapper mt-12">
+          
+          {/* Left Details & 3-Step Process Side */}
           <div className="enquiry-details-side">
-            <span className="badge-pill badge-terracotta text-xs mb-2">
-              <PhoneCall size={13} className="inline mr-1" /> FRANCHISE DESK
+            <span className="badge-pill badge-terracotta text-xs mb-3 inline-block">
+              A NEW NEIGHBOURHOOD. A NEW CONVERSATION.
             </span>
-            <h3 className="text-2xl font-bold text-heading mb-2">
-              Ready to bring Chai Bro to your city?
+
+            <h3 className="text-2xl md:text-3xl font-extrabold text-heading mb-3">
+              Your idea starts here.
             </h3>
-            <p className="text-sm text-body mb-6 leading-relaxed">
-              Fill in your details and our Franchise Director will get in touch with you within 2 business hours with the financial model and franchise brochure.
+
+            <p className="text-sm text-body mb-4 leading-relaxed">
+              Whether you are exploring café ownership or have a location ready, get in touch with the Chai Bro’s team for a direct discussion.
             </p>
 
-              <div className="enquiry-info-box">
-                <div className="info-row">
-                  <strong>Call / WhatsApp:</strong>{' '}
-                  <a href="https://wa.me/918700087687?text=Hello%20Chai%20Bro's,%20I%20am%20interested%20in%20a%20Franchise%20opportunity!" target="_blank" rel="noopener noreferrer" className="hover:underline text-terracotta font-bold">
-                    +91 87000 87687
-                  </a>
-                </div>
-                <div className="info-row">
-                  <strong>Email:</strong>{' '}
-                  <a href="mailto:info@chaibros.online" className="hover:underline">
-                    info@chaibros.online
-                  </a>
-                </div>
-                <div className="info-row">
-                  <strong>Flagship Café:</strong> Booth No. 80, Sector 89, Mohali, Punjab 160062
+            <p className="text-xs text-muted mb-6 leading-relaxed">
+              We’ll use your enquiry to understand your preferred area and the questions you’d like to ask. Store formats, costs, support and any commercial terms are discussed with the team.
+            </p>
+
+            {/* 3 Step Process Box (01, 02, 03) */}
+            <div className="franchise-steps-container">
+              <div className="franchise-step-item">
+                <div className="franchise-step-num">01</div>
+                <div>
+                  <strong className="block text-sm text-heading">Tell us about your plans</strong>
+                  <span className="text-xs text-muted">Share your city, location and contact details.</span>
                 </div>
               </div>
 
-              <div className="mt-4">
-                <a
-                  href="https://wa.me/918700087687?text=Hello%20Chai%20Bro's,%20I%20am%20interested%20in%20a%20Franchise%20opportunity!"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold"
-                  style={{
-                    backgroundColor: '#25D366',
-                    color: '#ffffff',
-                    boxShadow: '0 4px 12px rgba(37, 211, 102, 0.25)',
-                    textDecoration: 'none'
-                  }}
-                >
-                  <span>💬 Instant Franchise Chat on WhatsApp</span>
+              <div className="franchise-step-item">
+                <div className="franchise-step-num">02</div>
+                <div>
+                  <strong className="block text-sm text-heading">Connect with the team</strong>
+                  <span className="text-xs text-muted">Discuss the opportunity and ask your questions.</span>
+                </div>
+              </div>
+
+              <div className="franchise-step-item">
+                <div className="franchise-step-num">03</div>
+                <div>
+                  <strong className="block text-sm text-heading">Explore the next steps</strong>
+                  <span className="text-xs text-muted">Review the details before making a commitment.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Direct Contact Info Box */}
+            <div className="enquiry-info-box">
+              <div className="info-row">
+                <Phone size={15} className="text-terracotta inline mr-2" />
+                <strong>Call / WhatsApp:</strong>{' '}
+                <a href="tel:+918700087687" className="hover:underline text-terracotta font-bold ml-1">
+                  +91 87000 87687
                 </a>
               </div>
+              <div className="info-row">
+                <Mail size={15} className="text-terracotta inline mr-2" />
+                <strong>Email Support:</strong>{' '}
+                <a href="mailto:info@chaibros.online" className="hover:underline ml-1">
+                  info@chaibros.online
+                </a>
+              </div>
+              <div className="info-row">
+                <MapPin size={15} className="text-terracotta inline mr-2" />
+                <strong>Flagship Café:</strong> Booth No. 80, Sector 89, Mohali, Punjab
+              </div>
+            </div>
+
+            <div className="mt-5">
+              <button
+                type="button"
+                onClick={handleWhatsAppChat}
+                className="btn-whatsapp"
+              >
+                <MessageCircle size={18} />
+                <span>Continue on WhatsApp →</span>
+              </button>
+            </div>
           </div>
 
+          {/* Right Form Side */}
           <div className="enquiry-form-side">
             {submitted ? (
               <div className="submitted-success-box text-center py-8">
                 <div className="success-icon-check">
-                  <CheckCircle2 size={36} className="text-green-600" />
+                  <CheckCircle2 size={40} className="text-green-600" />
                 </div>
-                <h4 className="text-xl font-bold text-heading mt-2">Application Received!</h4>
+                <h4 className="text-xl font-bold text-heading mt-3">Enquiry Received!</h4>
                 <p className="text-sm text-muted mt-2 max-w-sm mx-auto">
-                  Thank you, <strong>{formData.name}</strong>. Our franchise expansion director will contact you directly on <strong>{formData.phone}</strong> for <strong>{formData.city}</strong>.
+                  Thank you, <strong>{formData.name}</strong>. Our franchise expansion team will contact you directly on <strong>{formData.phone}</strong> for <strong>{formData.city}</strong>.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="btn-secondary mt-6"
                 >
-                  Submit Another City
+                  Submit Another Location
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="clean-enquiry-form">
+                <h4 className="text-xl font-bold text-heading mb-1">Start a conversation</h4>
+                <p className="text-xs text-muted mb-4">Share a few details and continue with our expansion team.</p>
+
                 <div className="clean-form-row">
                   <div className="clean-form-field">
                     <label>Full Name *</label>
@@ -215,7 +274,7 @@ export const FranchiseSection = () => {
                     />
                   </div>
                   <div className="clean-form-field">
-                    <label>Phone Number (WhatsApp) *</label>
+                    <label>Phone Number *</label>
                     <input
                       type="tel"
                       required
@@ -228,7 +287,7 @@ export const FranchiseSection = () => {
 
                 <div className="clean-form-row">
                   <div className="clean-form-field">
-                    <label>Email Address</label>
+                    <label>Email <span className="text-muted font-normal">(optional)</span></label>
                     <input
                       type="email"
                       placeholder="you@domain.com"
@@ -237,7 +296,7 @@ export const FranchiseSection = () => {
                     />
                   </div>
                   <div className="clean-form-field">
-                    <label>Target City & State *</label>
+                    <label>City or Preferred Area *</label>
                     <input
                       type="text"
                       required
@@ -249,26 +308,53 @@ export const FranchiseSection = () => {
                 </div>
 
                 <div className="clean-form-field">
-                  <label>Investment Capacity</label>
+                  <label>Store Format Preference</label>
                   <select
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                   >
-                    <option value="15-20 Lakhs">₹14 – ₹18 Lakhs (Express Kiosk)</option>
-                    <option value="20-30 Lakhs">₹22 – ₹28 Lakhs (High Street Café)</option>
-                    <option value="35+ Lakhs">₹35+ Lakhs (Signature Lounge)</option>
-                    <option value="Multi-Unit">Multi-Unit / City Master Franchise</option>
+                    <option value="₹14 – ₹18 Lakhs (Express Kiosk)">₹14 – ₹18 Lakhs (Express Kiosk)</option>
+                    <option value="₹22 – ₹28 Lakhs (High Street Café)">₹22 – ₹28 Lakhs (High Street Café)</option>
+                    <option value="₹35+ Lakhs (Signature Lounge)">₹35+ Lakhs (Signature Lounge & Deck)</option>
+                    <option value="Multi-Unit Master Franchise">Multi-Unit Master Franchise</option>
                   </select>
                 </div>
 
-                <button type="submit" className="btn-primary w-full justify-center mt-2">
-                  <span>Submit Franchise Enquiry</span>
-                  <ArrowRight size={17} />
-                </button>
+                <div className="clean-form-field">
+                  <label>Tell us about your plans *</label>
+                  <textarea
+                    rows="3"
+                    required
+                    placeholder="Describe your location ideas, preferred store format, or timeline..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  />
+                </div>
+
+                <p className="text-xs text-muted mt-1">
+                  You can review your message in WhatsApp before sending.{' '}
+                  <Link to="/privacy-policy" className="text-terracotta font-semibold hover:underline">Privacy information</Link>
+                </p>
+
+                <div className="flex gap-3 mt-2 flex-wrap">
+                  <button type="submit" className="btn-primary flex-1 justify-center">
+                    <span>Submit Enquiry</span>
+                    <ArrowRight size={17} />
+                  </button>
+                  <button 
+                    type="button" 
+                    onClick={handleWhatsAppChat}
+                    className="btn-whatsapp btn-whatsapp-sm"
+                  >
+                    <MessageCircle size={16} />
+                    <span>WhatsApp</span>
+                  </button>
+                </div>
               </form>
             )}
           </div>
         </div>
+
       </div>
     </section>
   );

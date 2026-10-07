@@ -18,7 +18,7 @@ export const OUTLETS = [
     phone: '+91 87000 87687',
     type: 'Original Flagship & Outdoor Baithak',
     features: ['Special Desi Ghee Churi', 'Fresh Brass Handi Chai', 'Outdoor Seating Mood', 'WhatsApp Takeaway Orders'],
-    image: '/assets/chaibros/storefront-night.png',
+    image: '/assets/chaibros/original-night-1.webp',
     rating: 5.0,
     reviews: 1890
   },

@@ -97,7 +97,7 @@ export const BrandStory = () => {
 
           <div className="banner-image-right">
             <img 
-              src="/assets/chaibros/storefront-night.png" 
+              src="/assets/chaibros/original-night-1.webp" 
               alt="Chai Bro's Official Storefront at Night in Sector 89 Mohali" 
               className="banner-interior-img"
             />

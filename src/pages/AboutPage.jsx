@@ -72,7 +72,7 @@ export const AboutPage = () => {
 
             <div style={{ position: 'relative' }}>
               <img 
-                src="/assets/chaibros/storefront-night.png" 
+                src="/assets/chaibros/original-night-1.webp" 
                 alt="Chai Bro's Official Storefront in Sector 89 Mohali" 
                 style={{ width: '100%', height: '380px', objectFit: 'cover', borderRadius: '24px', boxShadow: 'var(--shadow-md)' }}
               />
@@ -189,8 +189,8 @@ export const AboutPage = () => {
             Find your nearest Chai Bro outlet or bring our authentic FOFO café model to your city.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Link to="/locations" className="btn-primary">
-              <span>View Locations</span>
+            <Link to="/visit-us" className="btn-primary">
+              <span>Visit Us</span>
               <ArrowRight size={16} />
             </Link>
             <Link to="/franchise" className="btn-secondary">

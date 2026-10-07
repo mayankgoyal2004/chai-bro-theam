@@ -3,7 +3,7 @@ import { FranchiseSection } from '../components/FranchiseSection';
 
 export const FranchisePage = () => {
   return (
-    <div className="page-franchise" style={{ paddingTop: '100px' }}>
+    <div className="page-franchise" style={{ paddingTop: '80px' }}>
       <FranchiseSection />
     </div>
   );

@@ -45,59 +45,50 @@ export const Footer = () => {
 
         {/* Links Col 1 */}
         <div className="footer-nav-col">
-          <h4 className="footer-heading">Pages</h4>
+          <h4 className="footer-heading">Find your favourite</h4>
           <ul className="footer-list">
-            <li><Link to="/" className="footer-nav-link">Home</Link></li>
-            <li><Link to="/about" className="footer-nav-link">Our Story & Heritage</Link></li>
-            <li><Link to="/menu" className="footer-nav-link">Café Menu</Link></li>
-            <li><Link to="/locations" className="footer-nav-link">Outlets & Locations</Link></li>
-            <li><Link to="/franchise" className="footer-nav-link">Franchise (FOFO)</Link></li>
-            <li><Link to="/contact" className="footer-nav-link">Contact & Enquiry</Link></li>
+            <li><Link to="/menu" className="footer-nav-link">Our Menu</Link></li>
+            <li><Link to="/our-story" className="footer-nav-link">Our Story</Link></li>
+            <li><Link to="/gallery" className="footer-nav-link">Gallery</Link></li>
           </ul>
         </div>
 
         {/* Links Col 2 */}
         <div className="footer-nav-col">
-          <h4 className="footer-heading">Menu Highlights</h4>
+          <h4 className="footer-heading">Let’s connect</h4>
           <ul className="footer-list">
-            <li><Link to="/menu" className="footer-nav-link">Special Desi Ghee Churi (₹60)</Link></li>
-            <li><Link to="/menu" className="footer-nav-link">Kadak Adrak & Elaichi Chai</Link></li>
-            <li><Link to="/menu" className="footer-nav-link">Pure Gurh (Jaggery) Chai</Link></li>
-            <li><Link to="/menu" className="footer-nav-link">Classic Creamy Cold Coffee</Link></li>
-            <li><Link to="/menu" className="footer-nav-link">Double Paneer Makhni Pizza</Link></li>
-            <li><Link to="/menu" className="footer-nav-link">Oreo & Biscoff Thick Shakes</Link></li>
+            <li><Link to="/franchise" className="footer-nav-link">Franchise Enquiries</Link></li>
+            <li><Link to="/contact" className="footer-nav-link">Contact Us</Link></li>
+            <li><Link to="/visit-us" className="footer-nav-link">Visit Us</Link></li>
           </ul>
         </div>
 
         {/* Flagship Location */}
         <div className="footer-nav-col">
-          <h4 className="footer-heading">Official Flagship</h4>
+          <h4 className="footer-heading">Drop by for chai</h4>
           <div className="footer-contact-block">
             <div className="contact-row">
               <MapPin size={17} className="text-terracotta flex-shrink-0 mt-0.5" />
               <span className="text-xs text-body leading-relaxed">
-                Booth No. 80, Sector 89, SAS Nagar, Mohali, Punjab 160062
+                Booth No. 80, Sector 89, Mohali, Punjab
               </span>
             </div>
 
             <div className="contact-row">
               <Phone size={17} className="text-terracotta flex-shrink-0 mt-0.5" />
               <a href="tel:+918700087687" className="contact-link">
-                +91 87000 87687 (Call / WhatsApp)
+                8700087687 (Call / WhatsApp)
               </a>
             </div>
 
-            <div className="contact-row">
-              <Mail size={17} className="text-terracotta flex-shrink-0 mt-0.5" />
-              <a href="mailto:info@chaibros.online" className="contact-link">
-                info@chaibros.online
-              </a>
-            </div>
-
-            <div className="hours-pill mt-3">
-              <span className="hours-pill-label">Daily Timings</span>
-              <strong className="hours-pill-time">7:30 AM – 1:30 AM (Open Everyday)</strong>
-            </div>
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Chai%20Bro%27s%2C%20Booth%20No.%2080%2C%20Sector%2089%2C%20Mohali%2C%20Punjab"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-xs text-terracotta font-semibold hover:underline inline-flex items-center gap-1 mt-2"
+            >
+              Get directions ↗
+            </a>
           </div>
         </div>
       </div>
@@ -105,15 +96,13 @@ export const Footer = () => {
       {/* Bottom Bar */}
       <div className="container footer-bottom-clean">
         <div className="text-xs text-muted">
-          © {new Date().getFullYear()} Chai Bro Hospitality. All rights reserved. Made with <Heart size={12} className="inline text-red-500 fill-red-500 mx-0.5" /> for authentic chai lovers.
+          © {new Date().getFullYear()} Chai Bro’s. All rights reserved. Peace in every sip.
         </div>
 
         <div className="footer-bottom-links">
-          <Link to="/about" className="footer-sub-link">About</Link>
+          <Link to="/privacy-policy" className="footer-sub-link">Privacy</Link>
           <span className="footer-bottom-dot">•</span>
-          <Link to="/locations" className="footer-sub-link">Outlets</Link>
-          <span className="footer-bottom-dot">•</span>
-          <Link to="/contact" className="footer-sub-link">Contact</Link>
+          <Link to="/terms" className="footer-sub-link">Terms</Link>
         </div>
       </div>
     </footer>

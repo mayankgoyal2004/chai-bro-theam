@@ -29,9 +29,9 @@ export const HomePage = () => {
               <span>View Full Menu</span>
               <ArrowRight size={17} />
             </Link>
-            <Link to="/locations" className="btn-secondary">
+            <Link to="/visit-us" className="btn-secondary">
               <MapPin size={16} className="text-terracotta" />
-              <span>Find Nearest Outlet</span>
+              <span>Visit Us</span>
             </Link>
           </div>
         </div>
