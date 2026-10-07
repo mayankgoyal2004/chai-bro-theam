@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Camera, Heart, MapPin, ArrowRight } from 'lucide-react';
 
 export const GalleryPage = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
 
   const galleryItems = [
     {
@@ -124,42 +123,20 @@ export const GalleryPage = () => {
               <img 
                 src="/assets/chaibros/original-front.webp" 
                 alt="Chai Bro's Storefront Booth No. 80 Sector 89 Mohali"
-                style={{ width: '100%', height: '360px', objectFit: 'cover' }}
+                style={{ width: '100%', height: '360px', objectFit: 'cover', objectPosition: 'top center' }}
               />
             </div>
           </div>
 
-          {/* Filter Tabs */}
-          <div className="gallery-filter-tabs mt-10 text-center" style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '32px' }}>
-            <button
-              onClick={() => setActiveFilter('all')}
-              className={`filter-tab-pill ${activeFilter === 'all' ? 'active' : ''}`}
-            >
-              All Pictures
-            </button>
-            <button
-              onClick={() => setActiveFilter('storefront')}
-              className={`filter-tab-pill ${activeFilter === 'storefront' ? 'active' : ''}`}
-            >
-              Storefront & Awning
-            </button>
-            <button
-              onClick={() => setActiveFilter('menu')}
-              className={`filter-tab-pill ${activeFilter === 'menu' ? 'active' : ''}`}
-            >
-              Menu Items
-            </button>
-          </div>
-
           {/* Gallery Items Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
-            {filtered.map(item => (
+            {galleryItems.map(item => (
               <div key={item.id} style={{ background: '#FFFFFF', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-sm)' }}>
-                <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+                <div style={{ position: 'relative', height: '260px', overflow: 'hidden' }}>
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} 
                   />
                   <span style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.7)', color: '#FFF', fontSize: '0.72rem', fontWeight: '600', padding: '4px 10px', borderRadius: '20px', backdropFilter: 'blur(4px)' }}>
                     {item.badge}

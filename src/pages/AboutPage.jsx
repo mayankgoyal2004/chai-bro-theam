@@ -74,7 +74,7 @@ export const AboutPage = () => {
               <img 
                 src="/assets/chaibros/original-night-1.webp" 
                 alt="Chai Bro's Official Storefront in Sector 89 Mohali" 
-                style={{ width: '100%', height: '380px', objectFit: 'cover', borderRadius: '24px', boxShadow: 'var(--shadow-md)' }}
+                style={{ width: '100%', height: '380px', objectFit: 'cover', objectPosition: 'top center', borderRadius: '24px', boxShadow: 'var(--shadow-md)' }}
               />
               <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: '#FFFFFF', padding: '12px 20px', borderRadius: '14px', boxShadow: 'var(--shadow-md)' }}>
                 <strong className="block text-sm text-heading">Booth No. 80, Sector 89, Mohali</strong>
