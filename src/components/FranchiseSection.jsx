@@ -226,17 +226,6 @@ export const FranchiseSection = () => {
                 <strong>Flagship Café:</strong> Booth No. 80, Sector 89, Mohali, Punjab
               </div>
             </div>
-
-            <div className="mt-5">
-              <button
-                type="button"
-                onClick={handleWhatsAppChat}
-                className="btn-whatsapp"
-              >
-                <MessageCircle size={18} />
-                <span>Continue on WhatsApp →</span>
-              </button>
-            </div>
           </div>
 
           {/* Right Form Side */}
@@ -332,22 +321,14 @@ export const FranchiseSection = () => {
                 </div>
 
                 <p className="text-xs text-muted mt-1">
-                  You can review your message in WhatsApp before sending.{' '}
-                  <Link to="/privacy-policy" className="text-terracotta font-semibold hover:underline">Privacy information</Link>
+                  By submitting this form, you agree to our{' '}
+                  <Link to="/privacy-policy" className="text-terracotta font-semibold hover:underline">Privacy Policy</Link>.
                 </p>
 
-                <div className="flex gap-3 mt-2 flex-wrap">
-                  <button type="submit" className="btn-primary flex-1 justify-center">
+                <div className="mt-3">
+                  <button type="submit" className="btn-primary w-full justify-center">
                     <span>Submit Enquiry</span>
                     <ArrowRight size={17} />
-                  </button>
-                  <button 
-                    type="button" 
-                    onClick={handleWhatsAppChat}
-                    className="btn-whatsapp btn-whatsapp-sm"
-                  >
-                    <MessageCircle size={16} />
-                    <span>WhatsApp</span>
                   </button>
                 </div>
               </form>
