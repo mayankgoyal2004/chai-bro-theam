@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Heart,
   Award,
+  CheckCircle2,
 } from "lucide-react";
 import { HeroParticles } from "./HeroParticles";
 
@@ -25,63 +26,45 @@ export const Hero = () => {
   const experiences = [
     {
       id: "gurh-laachi",
-      label: "Signature Gurh Laachi",
-      sublabel: "Slow-Simmered Chai",
+      tabLabel: "Gurh Laachi Chai",
+      icon: Coffee,
       tag: "🔥 #1 Tricity Best Seller",
       title: "Artisanal Gurh Laachi Chai",
-      desc: "Double-boiled pure buffalo milk slow-simmered in traditional brass handi with whole green cardamom and raw organic jaggery. Poured boiling hot into porous earthen kulhad.",
+      desc: "Double-boiled pure buffalo milk slow-simmered in traditional brass handi with whole green cardamom & raw organic jaggery.",
       image: "/assets/hero/hero_kulhad_pour.jpg",
       alt: "Artisanal Gurh Laachi Kulhad Chai Pour",
-      badgePrice: "₹49",
-      badgeUnit: "per unglazed kulhad",
-      tastingNotes: [
-        "Amber Gurh Sweetness",
-        "Green Cardamom Aroma",
-        "Earthy River Clay Finish",
-      ],
-      ctaText: "Explore Royal Menu",
+      price: "₹49",
+      unit: "per earthen kulhad",
+      ctaText: "Explore Full Menu",
       ctaLink: "/menu",
-      highlightBadge: "Pure Unglazed River Clay",
     },
     {
       id: "desi-churi",
-      label: "Ghar Ki Desi Churi",
-      sublabel: "Heritage Recipe",
+      tabLabel: "Ghar Ki Desi Churi",
+      icon: Flame,
       tag: "✨ Royal Punjabi Comfort",
-      title: "Desi Ghee Churi & Sourdough Bun Maska",
-      desc: "Hand-crushed whole wheat tandoori rotis blended with warm pure desi ghee, organic country jaggery, crushed pistachios, and saffron strands. Accompanied by crispy buttered bun maska.",
+      title: "Desi Ghee Churi & Bun Maska",
+      desc: "Hand-crushed tandoori rotis blended with warm pure desi ghee, organic country jaggery, crushed pistachios, and saffron.",
       image: "/assets/hero/hero_churi_delight.jpg",
       alt: "Punjabi Desi Ghee Churi and Bun Maska Delight",
-      badgePrice: "₹99",
-      badgeUnit: "rich heritage bowl",
-      tastingNotes: [
-        "100% Pure Desi Ghee",
-        "Organic Golden Jaggery",
-        "Saffron & Roasted Pistachio",
-      ],
+      price: "₹99",
+      unit: "rich heritage bowl",
       ctaText: "View Food Delicacies",
       ctaLink: "/menu",
-      highlightBadge: "100% Desi Ghee Guaranteed",
     },
     {
       id: "franchise-fofo",
-      label: "Franchise Revolution",
-      sublabel: "FOFO Business Model",
+      tabLabel: "Franchise Model",
+      icon: Store,
       tag: "🏆 High ROI Opportunity",
-      title: "Own A Gurh Laachi & Chai Bro Outlet",
-      desc: "Join India’s most profitable and culturally rooted modern café network. Standardised backend kitchen, trained manpower support, zero hidden royalties, and 360° store launch guidance.",
+      title: "Own A Gurh Laachi Outlet",
+      desc: "Join India’s fastest growing modern café network with standard kitchen SOPs, manpower support, and zero hidden royalties.",
       image: "/assets/hero/hero_ambient_bg.jpg",
       alt: "Gurh Laachi and Chai Bro Modern Café Outlets",
-      badgePrice: "FOFO",
-      badgeUnit: "Proven Model",
-      tastingNotes: [
-        "200+ Outlets Pan-India",
-        "ROI in 9-14 Months",
-        "Complete Operational SOPs",
-      ],
+      price: "FOFO",
+      unit: "200+ Outlets",
       ctaText: "Get Franchise Kit",
       ctaLink: "/franchise",
-      highlightBadge: "360° Partner Support",
     },
   ];
 
@@ -97,8 +80,8 @@ export const Hero = () => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / centerY) * -10;
-    const rotateY = ((x - centerX) / centerX) * 10;
+    const rotateX = ((y - centerY) / centerY) * -6;
+    const rotateY = ((x - centerX) / centerX) * 6;
 
     const glareX = (x / rect.width) * 100;
     const glareY = (y / rect.height) * 100;
@@ -112,7 +95,7 @@ export const Hero = () => {
 
   return (
     <section id="home" className="hero-master-wrapper">
-      {/* Background Hero Atmosphere with Ambient Café Photo and Particles */}
+      {/* Background Layer with Ambient Café Photo, Dark Gradient & Subtle Glow */}
       <div
         className="hero-bg-layer"
         style={{ backgroundImage: `url('/assets/hero/hero_ambient_bg.jpg')` }}
@@ -123,284 +106,208 @@ export const Hero = () => {
         <HeroParticles />
       </div>
 
-      {/* Hero Content Container */}
+      {/* Main Hero Container */}
       <div className="container hero-inner-container">
         <div className="hero-main-grid">
-          {/* Left Hero Column: Brand Story & Impact Typography */}
+          
+          {/* Left Column: Headline, Body, Tab Switcher & CTAs */}
           <div className="hero-content-col">
-            <div className="hero-heritage-pill">
-              <span className="pill-badge">
-                <Sparkles size={14} className="icon-sparkle" />
-                <span>ROOTED IN PUNJAB • CRAFTED FOR MODERN SOULS</span>
-              </span>
+            
+            {/* Top Heritage Pill */}
+            <div className="hero-badge-pill">
+              <Sparkles size={14} className="badge-sparkle-icon" />
+              <span>ROOTED IN PUNJAB • CRAFTED FOR MODERN SOULS</span>
             </div>
 
-            <h1 className="hero-title-headline">
+            {/* Main Title */}
+            <h1 className="hero-headline">
               Where Punjab’s roots <br />
-              <span className="hero-title-highlight">
+              <span className="hero-headline-accent">
                 meet modern café culture.
               </span>
             </h1>
 
-            <p className="hero-body-description">
-              Experience the soul-soothing warmth of{" "}
-              <strong>Gurh Laachi & Chai Bro</strong>. Authentic slow-simmered
-              kulhad chai, golden handcrafted <strong>Desi Ghee Churi</strong>,
-              crisp bun maska, and signature kulhad coffees — brewed with pure
-              buffalo milk and unglazed riverbed clay.
+            {/* Subtitle / Description */}
+            <p className="hero-description">
+              Savor slow-simmered <strong>Gurh Laachi Kulhad Chai</strong>, golden
+              handcrafted <strong>Desi Ghee Churi</strong>, and signature coffees —
+              brewed with pure buffalo milk and unglazed riverbed clay.
             </p>
 
-            {/* Interactive Experience Tab Selector */}
-            <div className="hero-tab-selector" role="tablist">
-              {experiences.map((exp, idx) => (
-                <button
-                  key={exp.id}
-                  role="tab"
-                  aria-selected={activeTab === idx}
-                  onClick={() => setActiveTab(idx)}
-                  className={`hero-tab-btn ${activeTab === idx ? "active" : ""}`}
-                  data-cursor-text="Switch"
-                >
-                  <span className="tab-indicator-num">0{idx + 1}</span>
-                  <div className="tab-btn-text">
-                    <span className="tab-title">{exp.label}</span>
-                    <span className="tab-subtitle">{exp.sublabel}</span>
-                  </div>
-                </button>
-              ))}
-            </div>
-
-            {/* Tasting Notes Bar */}
-            <div className="hero-tasting-notes">
-              <span className="notes-label">Culinary Notes:</span>
-              <div className="notes-list">
-                {currentExp.tastingNotes.map((note, i) => (
-                  <span key={i} className="note-pill">
-                    <Flame size={12} className="note-icon" />
-                    {note}
-                  </span>
-                ))}
-              </div>
+            {/* Clean Specialty Selector Tabs */}
+            <div className="hero-tabs-bar" role="tablist">
+              {experiences.map((exp, idx) => {
+                const TabIcon = exp.icon;
+                return (
+                  <button
+                    key={exp.id}
+                    role="tab"
+                    aria-selected={activeTab === idx}
+                    onClick={() => setActiveTab(idx)}
+                    className={`hero-pill-tab ${activeTab === idx ? "active" : ""}`}
+                  >
+                    <TabIcon size={15} />
+                    <span>{exp.tabLabel}</span>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Action Buttons */}
-            <div className="hero-action-buttons">
-              <Link
-                to={currentExp.ctaLink}
-                className="btn-hero-primary"
-                data-cursor-text="Order"
-              >
-                <span className="btn-hero-text">{currentExp.ctaText}</span>
-                <span className="btn-hero-icon-circle">
-                  <ArrowRight size={18} />
-                </span>
+            <div className="hero-actions-row">
+              <Link to={currentExp.ctaLink} className="btn-hero-primary">
+                <span>{currentExp.ctaText}</span>
+                <div className="btn-icon-wrapper">
+                  <ArrowRight size={16} />
+                </div>
               </Link>
 
-              <Link
-                to="/franchise"
-                className="btn-hero-secondary"
-                data-cursor-text="FOFO"
-              >
-                <Store size={18} className="icon-terracotta" />
+              <Link to="/franchise" className="btn-hero-secondary">
+                <Store size={18} className="btn-secondary-icon" />
                 <span>Franchise Opportunities</span>
               </Link>
             </div>
 
-            {/* Verified Trust Strip */}
-            <div className="hero-trust-strip">
-              <div className="trust-item">
-                <div className="trust-icon-box">
-                  <Coffee size={20} />
-                </div>
-                <div className="trust-item-info">
-                  <strong>Unglazed River Clay</strong>
-                  <span>Earthy mineral infusion</span>
-                </div>
+            {/* Clean Trust Features Row */}
+            <div className="hero-trust-bar">
+              <div className="trust-pill-item">
+                <CheckCircle2 size={16} className="trust-check-icon" />
+                <span>Unglazed River Clay</span>
               </div>
-
-              <div className="trust-item">
-                <div className="trust-icon-box bg-gold-subtle">
-                  <Sparkles size={20} className="text-gold" />
-                </div>
-                <div className="trust-item-info">
-                  <strong>100% Desi Ghee</strong>
-                  <span>Zero margarine & palm oil</span>
-                </div>
+              <div className="trust-pill-divider">•</div>
+              <div className="trust-pill-item">
+                <CheckCircle2 size={16} className="trust-check-icon" />
+                <span>100% Desi Ghee</span>
               </div>
-
-              <div className="trust-item">
-                <div className="trust-icon-box bg-green-subtle">
-                  <ShieldCheck size={20} className="text-green" />
-                </div>
-                <div className="trust-item-info">
-                  <strong>Pure Buffalo Milk</strong>
-                  <span>Slow handi simmered daily</span>
-                </div>
+              <div className="trust-pill-divider">•</div>
+              <div className="trust-pill-item">
+                <CheckCircle2 size={16} className="trust-check-icon" />
+                <span>Pure Buffalo Milk</span>
               </div>
             </div>
+
           </div>
 
-          {/* Right Hero Column: 3D Interactive Magnetic Showcase Frame */}
+          {/* Right Column: Visual Showcase Frame */}
           <div className="hero-visual-col">
             <div
               ref={frameRef}
-              className="interactive-3d-card"
+              className="hero-card-showcase"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{
-                transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(1.02, 1.02, 1.02)`,
+                transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
                 transition:
                   tilt.x === 0 && tilt.y === 0
-                    ? "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
+                    ? "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)"
                     : "none",
               }}
             >
-              {/* Dynamic Glare Reflection */}
+              {/* Card Glare */}
               <div
-                className="card-glare"
+                className="showcase-glare"
                 style={{
-                  background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%)`,
+                  background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%)`,
                 }}
               />
 
-              {/* Showcase Main Photo Frame */}
-              <div className="showcase-photo-container">
+              {/* Main Image Frame */}
+              <div className="showcase-image-wrapper">
                 <img
                   key={currentExp.image}
                   src={currentExp.image}
                   alt={currentExp.alt}
-                  className="showcase-main-img animate-fade-in"
+                  className="showcase-img"
                 />
 
-                {/* Live Steam Effect Overlay on Image */}
-                <div className="steam-container" aria-hidden="true">
-                  <div className="steam-wisp steam-wisp-1"></div>
-                  <div className="steam-wisp steam-wisp-2"></div>
-                  <div className="steam-wisp steam-wisp-3"></div>
+                {/* Gentle Steam Animation */}
+                <div className="steam-overlay" aria-hidden="true">
+                  <div className="steam-particle steam-1"></div>
+                  <div className="steam-particle steam-2"></div>
+                  <div className="steam-particle steam-3"></div>
                 </div>
 
-                {/* Top Badge: Live Hand-Poured */}
-                <div className="showcase-top-badge">
-                  <span className="live-pulsing-badge"></span>
+                {/* Top Left Tag */}
+                <div className="showcase-tag-badge">
+                  <span className="live-dot"></span>
                   <span>{currentExp.tag}</span>
                 </div>
 
-                {/* Like Favorite Button */}
+                {/* Like Button */}
                 <button
                   type="button"
                   onClick={() => setLiked(!liked)}
-                  className={`btn-like-showcase ${liked ? "liked" : ""}`}
-                  title="Favorite this taste"
-                  data-cursor-text="Love"
+                  className={`showcase-heart-btn ${liked ? "liked" : ""}`}
+                  title="Favorite"
                 >
                   <Heart
-                    size={18}
+                    size={16}
                     className={liked ? "fill-terracotta text-terracotta" : ""}
                   />
                 </button>
 
-                {/* Bottom Overlay Glass Card */}
-                <div className="showcase-bottom-overlay">
-                  <div className="overlay-info-text">
-                    <span className="overlay-badge">
-                      {currentExp.highlightBadge}
-                    </span>
-                    <h3 className="overlay-title">{currentExp.title}</h3>
+                {/* Glass Bottom Info Overlay */}
+                <div className="showcase-glass-card">
+                  <div className="glass-text-content">
+                    <span className="glass-subtitle">{currentExp.title}</span>
+                    <p className="glass-desc-short">{currentExp.desc}</p>
                   </div>
-                  <div className="overlay-price-tag">
-                    <span className="price-amount">
-                      {currentExp.badgePrice}
-                    </span>
-                    <span className="price-unit">{currentExp.badgeUnit}</span>
+                  <div className="glass-price-box">
+                    <span className="glass-price-val">{currentExp.price}</span>
+                    <span className="glass-price-sub">{currentExp.unit}</span>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Review & Rating Card */}
-              <div className="floating-stat-card card-rating-top animate-float-slow">
-                <div className="stat-stars-row">
+              {/* Floating Review Badge */}
+              <div className="hero-floating-testimonial">
+                <div className="rating-stars">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={15} className="star-icon filled" />
+                    <Star key={i} size={13} className="star-filled" />
                   ))}
-                  <strong className="stat-score">4.9 / 5.0</strong>
+                  <strong className="score-text">4.9 / 5.0</strong>
                 </div>
-                <p className="stat-quote">
-                  “The authentic aroma of Punjab in an unglazed clay kulhad.
-                  Best chai in Mohali!”
+                <p className="testimonial-quote">
+                  “Authentic Punjabi chai in real kulhads. Unmatched taste!”
                 </p>
-                <div className="stat-author">
-                  <span className="author-avatar">GK</span>
-                  <div className="author-details">
-                    <span className="author-name">Gurinder K.</span>
-                    <span className="author-city">
-                      Chandigarh • Google Verified Review
-                    </span>
-                  </div>
+                <div className="testimonial-user">
+                  <div className="user-avatar">GK</div>
+                  <span className="user-name">Gurinder K. • Verified Review</span>
                 </div>
               </div>
 
-              {/* Floating Highlight Feature Pill */}
-              <div className="floating-stat-card card-craft-bottom animate-float-reverse">
-                <div className="craft-icon-circle">
-                  <Award size={20} className="text-terracotta" />
-                </div>
-                <div className="craft-text">
-                  <span className="craft-title">1.2 Million+ Kulhads</span>
-                  <span className="craft-desc">
-                    Crafted with pure slow-boil tradition
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
+
         </div>
       </div>
 
-      {/* Live High-Impact Ticker Ribbon */}
-      <div className="hero-ticker-ribbon">
-        <div className="container ticker-ribbon-content">
-          <div className="ticker-stat-block">
-            <span className="stat-num">200+</span>
-            <span className="stat-label">Café Outlets</span>
+      {/* Streamlined Live Ticker Bar */}
+      <div className="hero-ticker-bar">
+        <div className="container ticker-container">
+          <div className="ticker-item">
+            <strong className="ticker-val">200+</strong>
+            <span className="ticker-lbl">Outlets</span>
           </div>
-
-          <div className="ticker-divider">♦</div>
-
-          <div className="ticker-stat-block">
-            <span className="stat-num">70+</span>
-            <span className="stat-label">Cities Nationwide</span>
+          <span className="ticker-dot">•</span>
+          <div className="ticker-item">
+            <strong className="ticker-val">70+</strong>
+            <span className="ticker-lbl">Cities Pan-India</span>
           </div>
-
-          <div className="ticker-divider">♦</div>
-
-          <div className="ticker-stat-block">
-            <span className="stat-num">100%</span>
-            <span className="stat-label">Pure Desi Ghee</span>
+          <span className="ticker-dot">•</span>
+          <div className="ticker-item">
+            <strong className="ticker-val">100%</strong>
+            <span className="ticker-lbl">Desi Ghee</span>
           </div>
-
-          <div className="ticker-divider">♦</div>
-
-          <div className="ticker-stat-block">
-            <span className="stat-num">Zero</span>
-            <span className="stat-label">Artificial Essences</span>
+          <span className="ticker-dot">•</span>
+          <div className="ticker-item">
+            <strong className="ticker-val">Zero</strong>
+            <span className="ticker-lbl">Artificial Essences</span>
           </div>
-
-          <div className="ticker-divider">♦</div>
-
-          <div className="ticker-stat-block">
-            <span className="stat-num">FOFO</span>
-            <span className="stat-label">High-ROI Franchise</span>
-          </div>
-
-          <div className="ticker-divider">♦</div>
-
-          <Link
-            to="/franchise"
-            className="ticker-cta-pill"
-            data-cursor-text="Apply"
-          >
+          <span className="ticker-dot">•</span>
+          <Link to="/franchise" className="ticker-cta-link">
             <span>Become a Franchisee</span>
-            <ChevronRight size={15} />
+            <ChevronRight size={14} />
           </Link>
         </div>
       </div>
