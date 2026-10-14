@@ -36,20 +36,22 @@ export const ItemModal = ({ activeItem, onClose }) => {
   }, [activeItem]);
 
   const [selectedIdx, setSelectedIdx] = useState(0);
+  const [modalImgSrc, setModalImgSrc] = useState(activeItem?.image);
 
   useEffect(() => {
-    if (activeItem && activeItem.selectedVariant) {
-      const idx = parsedVariants.findIndex(v => v.size === activeItem.selectedVariant.size);
-      if (idx !== -1) setSelectedIdx(idx);
-      else setSelectedIdx(0);
-    } else {
-      setSelectedIdx(0);
-    }
-  }, [activeItem, parsedVariants]);
+    setModalImgSrc(activeItem?.image);
+  }, [activeItem]);
 
   if (!activeItem) return null;
 
   const currentVariant = parsedVariants[selectedIdx] || parsedVariants[0] || { size: 'Regular', price: activeItem.price || 0 };
+
+  const handleModalImgError = () => {
+    const fallback = `/assets/menu/${activeItem.category}.png`;
+    if (modalImgSrc !== fallback) {
+      setModalImgSrc(fallback);
+    }
+  };
 
   return (
     <div className="item-modal-backdrop" onClick={onClose}>
@@ -65,7 +67,12 @@ export const ItemModal = ({ activeItem, onClose }) => {
         <div className="clean-modal-grid">
           {/* Photo */}
           <div className="clean-modal-photo-col">
-            <img src={activeItem.image} alt={activeItem.name} className="modal-photo" />
+            <img
+              src={modalImgSrc || `/assets/menu/${activeItem.category}.png`}
+              alt={activeItem.name}
+              className="modal-photo"
+              onError={handleModalImgError}
+            />
             {activeItem.badge && (
               <span className="badge-pill badge-gurh modal-photo-badge">
                 <Sparkles size={12} className="inline mr-1" />

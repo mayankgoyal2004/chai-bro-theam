@@ -6,34 +6,34 @@ export const WhyChaiBro = () => {
     {
       id: 'mitti',
       icon: <Leaf className="text-terracotta" size={26} />,
-      title: 'Unglazed Riverbed Kulhads',
-      subtitle: 'Sondhi Khushboo & Natural Minerals',
-      desc: 'Each kulhad is hand-turned by artisan potters using clean, raw riverbed clay. The porous terracotta naturally balances acidity and imparts that authentic earthy aroma that paper or plastic cups can never replicate.',
-      points: ['100% Eco-friendly & single use', 'Zero chemical coatings', 'Naturally retains warmth']
+      title: 'AUTHENTIC INDIAN CHAI',
+      subtitle: 'Chai Made the Desi Way',
+      desc: 'Our chai is brewed with carefully selected tea leaves, aromatic spices, and fresh ingredients. Every cup is prepared to deliver the rich, comforting taste of traditional Indian chai.',
+      points: ['Freshly brewed every time', 'Authentic Indian flavours', 'Rich & aromatic taste']
     },
     {
       id: 'spices',
       icon: <Sparkles className="text-gurh" size={26} />,
-      title: 'Real Spices, No Extracts',
-      subtitle: 'Hand-Crushed Potli Masalas',
-      desc: 'We never use instant tea powders or synthetic flavor essences. Real Idukki cardamom, fresh crushed ginger, and pure jaggery (gurh) slow-dum brewed fresh throughout the day.',
-      points: ['Kadak Adrak & Elaichi brews', 'Pure Gurh & Kashmiri Kesar', 'Zero artificial syrups']
+      title: 'FRESH SPICES & INGREDIENTS',
+      subtitle: 'Flavour You Can Taste',
+      desc: 'From fragrant cardamom to warming ginger, we use quality ingredients to create deliciously refreshing beverages. No shortcuts, just bold flavours in every sip.',
+      points: ['Freshly selected ingredients', 'Authentic spice blends', 'Made fresh to order']
     },
     {
       id: 'churi',
       icon: <Shield className="text-gurh" size={26} />,
-      title: 'Special Desi Ghee Churi',
-      subtitle: 'Our Mohali Signature Delicacy',
-      desc: 'A traditional Punjabi comfort treat made with fresh rotis crumbled with pure desi ghee and shakkar/gurh. Served warm at just ₹60, it is our most loved, soul-soothing recipe.',
-      points: ['100% Pure Desi Ghee', 'Traditional comforting recipe', 'Only ₹60 per serving']
+      title: 'DESI BITES & COMFORT FOOD',
+      subtitle: 'Something Delicious for Everyone',
+      desc: 'Pair your favourite chai with our range of satisfying desi bites and café favourites. From quick snacks to comforting treats, there’s always something delicious waiting for you.',
+      points: ['Freshly prepared food', 'Perfect chai pairings', 'Delicious everyday treats']
     },
     {
       id: 'culture',
       icon: <HeartHandshake className="text-terracotta" size={26} />,
-      title: 'Peace in Every Sip',
-      subtitle: 'Comfort First & Friendly Vibe',
-      desc: 'A café-style chai stop with a desi heart. From loaded pizzas, Takatak sandwiches, and thick shakes to your favorite corner table for chit-chat or late-night breaks.',
-      points: ['Welcoming café ambiance', 'Fresh burgers & bites', 'Friendly 30+ team service']
+      title: 'A PLACE TO CONNECT',
+      subtitle: 'Good Chai. Good Food. Good Vibes.',
+      desc: 'Whether you’re catching up with friends, taking a break, or enjoying some me-time, our café is made for relaxed conversations, tasty food, and memorable moments.',
+      points: ['Warm café atmosphere', 'Friendly service', 'Perfect for every occasion']
     }
   ];
 
@@ -43,13 +43,13 @@ export const WhyChaiBro = () => {
         {/* Section Header */}
         <div className="section-header text-center">
           <span className="badge-pill badge-terracotta mb-2">
-            THE CHAI BRO STANDARD
+            THE CHAI BRO EXPERIENCE
           </span>
           <h2 className="section-title">
-            Why Millions Love <span className="text-terracotta font-serif italic">Every Single Sip</span>
+            Why Every Cup Feels <span className="text-terracotta font-serif italic">Like Home</span>
           </h2>
           <p className="section-subtitle">
-            We spent years perfecting our slow-dum technique, spice potli blends, and earthen kiln temperatures so that every cup feels like home.
+            We bring together authentic Indian flavours, freshly prepared ingredients, and a warm café experience to make every visit worth remembering.
           </p>
         </div>
 

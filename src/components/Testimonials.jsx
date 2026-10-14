@@ -4,23 +4,23 @@ import { Star } from 'lucide-react';
 export const Testimonials = () => {
   const reviews = [
     {
-      name: 'Harmanpreet Singh',
-      comment: 'Best chai in Mohali! The taste reminds me of home, amazing snacks and great ambiance.',
+      name: 'Harpreet Singh',
+      comment: 'Came in for a quick chai after work and ended up staying much longer. The chai was comforting, the snacks were fresh, and the place felt really relaxed.',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
     },
     {
-      name: 'Amanpreet Kaur',
-      comment: 'Perfect place to hang out with friends. The chaat and cold coffee are must try!',
+      name: 'Amandeep Kaur',
+      comment: 'We randomly stopped here while meeting friends and honestly loved the experience. Good chai, tasty food and a nice place to sit and talk without rushing.',
       avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80'
     },
     {
       name: 'Rahul Sharma',
-      comment: 'Great food, friendly staff and a very cozy environment. Highly recommended!',
+      comment: 'I visited with a couple of friends on a busy evening. The staff was friendly, the food arrived quickly, and the chai was exactly what we needed after a long day.',
       avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80'
     },
     {
       name: 'Simran Gill',
-      comment: 'Love the vibe and the chai! It\'s my go-to place whenever I\'m in Mohali.',
+      comment: 'What started as a simple chai plan turned into an evening of food, conversations and laughs. I really liked the relaxed atmosphere and would happily come back.',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'
     }
   ];
@@ -37,7 +37,7 @@ export const Testimonials = () => {
             Loved By Our <span className="text-terracotta font-serif italic">Chai Family</span>
           </h2>
           <p className="section-subtitle mt-3 max-w-2xl mx-auto">
-            Real stories from our customers who make Chai Bro's special.
+            Every visit has a little story — from quick chai breaks to conversations that last for hours.
           </p>
         </div>
 

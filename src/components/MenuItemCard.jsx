@@ -10,7 +10,19 @@ export const MenuItemCard = ({ item }) => {
     : [{ size: 'Regular', price: item.price || 0 }];
 
   const [selectedIdx, setSelectedIdx] = useState(0);
+  const [imgSrc, setImgSrc] = useState(item.image);
   const activeVariant = variants[selectedIdx] || variants[0];
+
+  React.useEffect(() => {
+    setImgSrc(item.image);
+  }, [item.image]);
+
+  const handleImgError = () => {
+    const fallback = `/assets/menu/${item.category}.png`;
+    if (imgSrc !== fallback) {
+      setImgSrc(fallback);
+    }
+  };
 
   return (
     <article className="chai-bites-card">
@@ -20,10 +32,11 @@ export const MenuItemCard = ({ item }) => {
           <span className="veg-inner-dot"></span>
         </span>
         <img
-          src={item.image}
+          src={imgSrc || `/assets/menu/${item.category}.png`}
           alt={item.name}
           className="chai-card-food-img"
           loading="lazy"
+          onError={handleImgError}
         />
       </div>
 

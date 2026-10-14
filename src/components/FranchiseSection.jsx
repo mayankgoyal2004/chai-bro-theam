@@ -90,10 +90,10 @@ export const FranchiseSection = () => {
             FRANCHISE ENQUIRIES
           </span>
           <h1 className="section-title">
-            Let’s Talk <span className="text-terracotta font-serif italic">Over Chai</span>
+            Let’s talk <span className="text-terracotta font-serif italic">over chai.</span>
           </h1>
           <p className="section-subtitle">
-            Have a location in mind for Chai Bro’s? Tell us about your city, your space and your plans. Bring India’s fastest-growing modern chai chain to your neighbourhood.
+            Have a location in mind for Chai Bros? Tell us about your city, your space, and your plans. Let’s build a profitable neighborhood hub together.
           </p>
         </div>
 
@@ -138,22 +138,34 @@ export const FranchiseSection = () => {
           ))}
         </div>
 
-        {/* 3 Pillars of Partnership */}
-        <div className="partnership-pillars-bar">
-          <div className="pillar-cell">
-            <TrendingUp size={24} className="text-terracotta mb-2" />
-            <h4>65%+ Gross Margins</h4>
-            <p>Industry-leading margins driven by standardized F&B recipes and centralized spice procurement.</p>
-          </div>
-          <div className="pillar-cell">
-            <ShieldCheck size={24} className="text-gurh mb-2" />
-            <h4>Turnkey Outlet Setup</h4>
-            <p>Complete architect layouts, equipment supply, and 14-day on-site barista and team training.</p>
-          </div>
-          <div className="pillar-cell">
-            <Building2 size={24} className="text-cardamom mb-2" />
-            <h4>Zero Royalty First 3 Months</h4>
-            <p>Focus completely on local marketing, footfalls, and customer experience with our guidance.</p>
+        {/* Brand Value Proposition Section */}
+        <div className="section-padding text-center">
+          <span className="badge-pill badge-terracotta mb-2">Join the Revolution</span>
+          <h2 className="section-title">Why Partner with Chai Bros?</h2>
+          <p className="section-subtitle max-w-3xl mx-auto mb-10">
+            The cafe and quick-service restaurant (QSR) culture is booming, but authentic, soulful tea culture combined with modern aesthetics is where the future lies. When you franchise with Chai Bros, you aren't just opening a cafe—you are bringing a community-favorite hangout spot to your city.
+          </p>
+          <div className="partnership-pillars-bar" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
+            <div className="pillar-cell">
+              <TrendingUp size={24} className="text-terracotta mb-2" />
+              <h4>Proven Business Model</h4>
+              <p>Low setup costs with high operational efficiency and attractive profit margins.</p>
+            </div>
+            <div className="pillar-cell">
+              <Building2 size={24} className="text-gurh mb-2" />
+              <h4>End-to-End Support</h4>
+              <p>Comprehensive assistance from site selection and interior setup to staff training and launch marketing.</p>
+            </div>
+            <div className="pillar-cell">
+              <ShieldCheck size={24} className="text-cardamom mb-2" />
+              <h4>Robust Supply Chain</h4>
+              <p>Standardized raw material and ingredient supply to ensure consistent taste across every outlet.</p>
+            </div>
+            <div className="pillar-cell">
+              <Sparkles size={24} className="text-terracotta mb-2" />
+              <h4>Tech & Marketing Backing</h4>
+              <p>Digital marketing strategies, social media templates, and online ordering integration to drive immediate footfall.</p>
+            </div>
           </div>
         </div>
 
@@ -167,15 +179,11 @@ export const FranchiseSection = () => {
             </span>
 
             <h3 className="text-2xl md:text-3xl font-extrabold text-heading mb-3">
-              Your idea starts here.
+              Your expansion starts here.
             </h3>
 
-            <p className="text-sm text-body mb-4 leading-relaxed">
-              Whether you are exploring café ownership or have a location ready, get in touch with the Chai Bro’s team for a direct discussion.
-            </p>
-
-            <p className="text-xs text-muted mb-6 leading-relaxed">
-              We’ll use your enquiry to understand your preferred area and the questions you’d like to ask. Store formats, costs, support and any commercial terms are discussed with the team.
+            <p className="text-sm text-body mb-6 leading-relaxed">
+              Whether you are exploring cafe ownership or already have a prime location locked down, getting started is simple and transparent.
             </p>
 
             {/* 3 Step Process Box (01, 02, 03) */}
@@ -184,7 +192,7 @@ export const FranchiseSection = () => {
                 <div className="franchise-step-num">01</div>
                 <div>
                   <strong className="block text-sm text-heading">Tell us about your plans</strong>
-                  <span className="text-xs text-muted">Share your city, location and contact details.</span>
+                  <span className="text-xs text-muted">Share your preferred city, target location, and basic contact details via our quick inquiry form.</span>
                 </div>
               </div>
 
@@ -192,7 +200,7 @@ export const FranchiseSection = () => {
                 <div className="franchise-step-num">02</div>
                 <div>
                   <strong className="block text-sm text-heading">Connect with the team</strong>
-                  <span className="text-xs text-muted">Discuss the opportunity and ask your questions.</span>
+                  <span className="text-xs text-muted">Have a direct consultation with our core management to discuss business opportunities, store models, and answers to your questions.</span>
                 </div>
               </div>
 
@@ -200,30 +208,32 @@ export const FranchiseSection = () => {
                 <div className="franchise-step-num">03</div>
                 <div>
                   <strong className="block text-sm text-heading">Explore the next steps</strong>
-                  <span className="text-xs text-muted">Review the details before making a commitment.</span>
+                  <span className="text-xs text-muted">Review the commercial terms, layout designs, and investment structures before making a final commitment.</span>
                 </div>
               </div>
             </div>
 
             {/* Direct Contact Info Box */}
-            <div className="enquiry-info-box">
+            <div className="enquiry-info-box mt-8">
+              <h4 className="text-lg font-bold text-heading mb-2">Have Immediate Questions?</h4>
+              <p className="text-xs text-muted mb-4">Skip the form and speak directly with our expansion lead.</p>
               <div className="info-row">
                 <Phone size={15} className="text-terracotta inline mr-2" />
-                <strong>Call / WhatsApp:</strong>{' '}
+                <strong>Phone / WhatsApp:</strong>{' '}
                 <a href="tel:+918700087687" className="hover:underline text-terracotta font-bold ml-1">
                   +91 87000 87687
                 </a>
               </div>
               <div className="info-row">
                 <Mail size={15} className="text-terracotta inline mr-2" />
-                <strong>Email Support:</strong>{' '}
-                <a href="mailto:info@chaibros.online" className="hover:underline ml-1">
-                  info@chaibros.online
+                <strong>Email:</strong>{' '}
+                <a href="mailto:franchise@chaibros.online" className="hover:underline ml-1">
+                  franchise@chaibros.online
                 </a>
               </div>
               <div className="info-row">
                 <MapPin size={15} className="text-terracotta inline mr-2" />
-                <strong>Flagship Café:</strong> Booth No. 80, Sector 89, Mohali, Punjab
+                <strong>Headquarters:</strong> Booth No. 80, Sector 89, Mohali, Punjab
               </div>
             </div>
           </div>
@@ -248,12 +258,12 @@ export const FranchiseSection = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="clean-enquiry-form">
-                <h4 className="text-xl font-bold text-heading mb-1">Start a conversation</h4>
-                <p className="text-xs text-muted mb-4">Share a few details and continue with our expansion team.</p>
+                <h4 className="text-xl font-bold text-heading mb-1">Ready to Brew Success?</h4>
+                <p className="text-xs text-muted mb-4">Send Us Your Details.</p>
 
                 <div className="clean-form-row">
                   <div className="clean-form-field">
-                    <label>Full Name *</label>
+                    <label>Full Name (e.g., Rahul Sharma) *</label>
                     <input
                       type="text"
                       required
@@ -263,11 +273,11 @@ export const FranchiseSection = () => {
                     />
                   </div>
                   <div className="clean-form-field">
-                    <label>Phone Number *</label>
+                    <label>Phone / WhatsApp Number *</label>
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98765 00000"
+                      placeholder="+91 87000 XXXXX"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     />
@@ -276,7 +286,7 @@ export const FranchiseSection = () => {
 
                 <div className="clean-form-row">
                   <div className="clean-form-field">
-                    <label>Email <span className="text-muted font-normal">(optional)</span></label>
+                    <label>Email Address</label>
                     <input
                       type="email"
                       placeholder="you@domain.com"
@@ -285,39 +295,39 @@ export const FranchiseSection = () => {
                     />
                   </div>
                   <div className="clean-form-field">
-                    <label>City or Preferred Area *</label>
+                    <label>Target City / Location *</label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Ludhiana, Punjab"
+                      placeholder="Where do you want to open?"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                     />
                   </div>
                 </div>
 
-                <div className="clean-form-field">
-                  <label>Store Format Preference</label>
-                  <select
-                    value={formData.budget}
-                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                  >
-                    <option value="₹14 – ₹18 Lakhs (Express Kiosk)">₹14 – ₹18 Lakhs (Express Kiosk)</option>
-                    <option value="₹22 – ₹28 Lakhs (High Street Café)">₹22 – ₹28 Lakhs (High Street Café)</option>
-                    <option value="₹35+ Lakhs (Signature Lounge)">₹35+ Lakhs (Signature Lounge & Deck)</option>
-                    <option value="Multi-Unit Master Franchise">Multi-Unit Master Franchise</option>
-                  </select>
-                </div>
-
-                <div className="clean-form-field">
-                  <label>Tell us about your plans *</label>
-                  <textarea
-                    rows="3"
-                    required
-                    placeholder="Describe your location ideas, preferred store format, or timeline..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  />
+                <div className="clean-form-row">
+                  <div className="clean-form-field">
+                    <label>Approximate Space Available</label>
+                    <input
+                      type="text"
+                      placeholder="e.g., 300–600 sq. ft."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    />
+                  </div>
+                  <div className="clean-form-field">
+                    <label>Investment Budget Range</label>
+                    <select
+                      value={formData.budget}
+                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                    >
+                      <option value="₹14 – ₹18 Lakhs (Express Kiosk)">₹14 – ₹18 Lakhs</option>
+                      <option value="₹22 – ₹28 Lakhs (High Street Café)">₹22 – ₹28 Lakhs</option>
+                      <option value="₹35+ Lakhs (Signature Lounge)">₹35+ Lakhs</option>
+                      <option value="Multi-Unit Master Franchise">Multi-Unit Master Franchise</option>
+                    </select>
+                  </div>
                 </div>
 
                 <p className="text-xs text-muted mt-1">
@@ -327,7 +337,7 @@ export const FranchiseSection = () => {
 
                 <div className="flex gap-3 mt-3 flex-wrap">
                   <button type="submit" className="btn-primary flex-1 justify-center">
-                    <span>Submit Enquiry</span>
+                    <span>Submit Franchise Enquiry</span>
                     <ArrowRight size={17} />
                   </button>
                   <button 

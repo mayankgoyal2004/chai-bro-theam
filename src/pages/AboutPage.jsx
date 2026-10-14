@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle2, XCircle, Sparkles, Heart, Coffee, ShieldCheck, Leaf, ArrowRight, Store } from 'lucide-react';
+import { CheckCircle2, XCircle, Sparkles, Heart, Coffee, ShieldCheck, Leaf, ArrowRight, Store, HeartHandshake } from 'lucide-react';
 
 export const AboutPage = () => {
   const comparisons = [
@@ -31,13 +31,12 @@ export const AboutPage = () => {
       {/* Page Hero */}
       <section className="about-hero-section section-padding text-center" style={{ background: 'var(--gradient-warm-bg)' }}>
         <div className="container">
-          <span className="badge-pill badge-terracotta mb-3">PEACE IN EVERY SIP</span>
+          <span className="badge-pill badge-terracotta mb-3">OUR ROOTS & VISION</span>
           <h1 className="section-title text-4xl md:text-5xl font-extrabold text-heading">
-            Born in Mohali, Punjab. <br />
-            <span className="text-terracotta font-serif italic">Crafted for everyday comfort.</span>
+            From a Humble Booth to Your Daily Pause
           </h1>
           <p className="section-subtitle mt-4 text-base md:text-lg">
-            A simple idea: make every break feel a little better. Built around a familiar ritual—taking time out for a good cup of chai and something tasty on the side.
+            We didn't just build a café; we curated a space for connection. Our journey began in Sector 89, Mohali, with a simple dream: to serve the perfect cup of chai and genuine comfort. Every recipe tells a story of tradition, innovation, and community.
           </p>
         </div>
       </section>
@@ -47,25 +46,21 @@ export const AboutPage = () => {
         <div className="container">
           <div className="about-story-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px', alignItems: 'center' }}>
             <div>
-              <span className="badge-pill badge-gurh mb-2">OUR PHILOSOPHY</span>
+              <span className="badge-pill badge-gurh mb-2">THE CHAI BRO'S STORY</span>
               <h2 className="text-3xl font-bold text-heading mb-4">
-                A café-style chai stop with a desi heart.
+                Our Journey in Every Sip
               </h2>
               <p className="text-body text-sm leading-relaxed mb-4">
-                From our flagship outlet at <strong>Booth No. 80, Sector 89, Mohali, Punjab</strong>, Chai Bro’s is crafted for people who enjoy variety without losing the warmth of familiar flavours. Drop in for a cutting-style chai mood, stay for crisp fries, wraps, creamy pasta, hot pizzas, gourmet sandwiches, and our famous <strong>Special Desi Ghee Churi</strong>.
+                We didn't just build a café; we curated a space for connection. Our journey began in Sector 89, Mohali, with a simple dream: to serve the perfect cup of chai and genuine comfort. Every recipe tells a story of tradition, innovation, and community.
               </p>
               <p className="text-body text-sm leading-relaxed mb-6">
-                Behind the counter and beyond is a dedicated team of over 30 passionate people handling preparation, service, and day-to-day hospitality so that every visit feels like coming home.
+                We stay grounded in the values of community and shared values, even as we grow. From our signature Desi Ghee Churi to our cozy neighborhood location, everything we do is a celebration of authentic flavors and location experience.
               </p>
 
               <div className="flex gap-4 flex-wrap">
-                <Link to="/menu" className="btn-primary">
-                  <span>Explore Menu</span>
+                <Link to="/about" className="btn-primary">
+                  <span>Meet the Founders</span>
                   <ArrowRight size={16} />
-                </Link>
-                <Link to="/franchise" className="btn-secondary">
-                  <Store size={16} />
-                  <span>Become a Franchise Partner</span>
                 </Link>
               </div>
             </div>
@@ -78,64 +73,51 @@ export const AboutPage = () => {
               />
               <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: '#FFFFFF', padding: '12px 20px', borderRadius: '14px', boxShadow: 'var(--shadow-md)' }}>
                 <strong className="block text-sm text-heading">Booth No. 80, Sector 89, Mohali</strong>
-                <small className="text-xs text-muted">Special Desi Ghee Churi & Kulhad Chai</small>
+                <small className="text-xs text-muted">Captured moments of community gatherings and heritage tea brewing.</small>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* The 4 Craft Pillars */}
+      {/* The 3 Craft Pillars */}
       <section className="section-padding" style={{ background: 'var(--bg-primary)' }}>
         <div className="container">
           <div className="section-header text-center">
-            <span className="badge-pill badge-terracotta mb-2">THE 4 PILLARS OF CRAFT</span>
+            <span className="badge-pill badge-terracotta mb-2">OUR HIGHLIGHTS</span>
             <h2 className="section-title">
               What Makes Chai Bro <span className="text-terracotta font-serif italic">Different</span>
             </h2>
-            <p className="section-subtitle">
-              We preserve centuries of slow-dum Indian tea traditions while meeting modern food safety and hygiene standards.
-            </p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
             <div className="why-feature-card">
               <div className="why-icon-bubble">
-                <Leaf className="text-terracotta" size={26} />
+                <Coffee className="text-terracotta" size={26} />
               </div>
-              <h3 className="why-card-heading">Natural Mitti Kulhad</h3>
+              <h3 className="why-card-heading">Authentic Craft</h3>
               <p className="why-card-text">
-                Unglazed riverbed clay shaped by traditional potters. Porous walls naturally balance acidity and infuse that unmistakable petrichor scent.
+                Slow-brewed with hand-selected, premium spices.
               </p>
             </div>
 
             <div className="why-feature-card">
               <div className="why-icon-bubble">
-                <Sparkles className="text-gurh" size={26} />
+                <HeartHandshake className="text-gurh" size={26} />
               </div>
-              <h3 className="why-card-heading">Hand-Pounded Potli</h3>
+              <h3 className="why-card-heading">Community First</h3>
               <p className="why-card-text">
-                Whole green cardamom pods from Idukki (Kerala) and winter ginger crushed fresh every morning. Zero artificial drops or syrups.
+                A welcoming space for conversations, work, and laughter.
               </p>
             </div>
 
             <div className="why-feature-card">
               <div className="why-icon-bubble">
-                <ShieldCheck className="text-cardamom" size={26} />
+                <Leaf className="text-cardamom" size={26} />
               </div>
-              <h3 className="why-card-heading">100% Buffalo Milk</h3>
+              <h3 className="why-card-heading">Quality Ingredients</h3>
               <p className="why-card-text">
-                Fresh whole milk double-boiled in heavy-bottom brass handis to create dense decoctions and velvety froth with every pour.
-              </p>
-            </div>
-
-            <div className="why-feature-card">
-              <div className="why-icon-bubble">
-                <Heart className="text-terracotta" size={26} />
-              </div>
-              <h3 className="why-card-heading">Yaari & Community</h3>
-              <p className="why-card-text">
-                More than just a café — a sanctuary where friends connect over steaming tea, board games, and memories that last a lifetime.
+                Locally sourced, fresh, and vegetarian, with no shortcuts.
               </p>
             </div>
           </div>

@@ -11,33 +11,27 @@ import {
 export const BrandStory = () => {
   const houseSpecials = [
     {
-      title: "Authentic Kulhad Chai",
-      subtitle:
-        "More than chai, every kulhad carries warmth, flavour and a piece of Punjab.",
-      desc: "Slow-simmered whole milk infused with hand-crushed green cardamom from Kerala, high-altitude ginger, and organic jaggery (Gurh). Poured hot into single-use unglazed terracotta cups.",
-      image:
-        "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=80",
-      badge: "Heritage Recipe",
+      title: "Signature Kulhad Chai",
+      subtitle: "Brewed slow, served hot—the ultimate comfort in every terracotta cup.",
+      desc: "Hand-selected tea leaves simmered to perfection with farm-fresh milk, crushed whole spices, and organic sweetness. Served exclusively in breathable clay cups for that unmatched earthy aroma.",
+      image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=80",
+      badge: "ARTISAN ROOTS",
       link: "/menu",
     },
     {
-      title: "Desi Ghee Churi & Bites",
-      subtitle:
-        "Our churi begins with fresh tawa roti & desi ghee, bringing familiar taste to every bite.",
-      desc: "Inspired by recipes passed down through generations. Whole wheat rotis crushed by hand and tossed in bubbling desi ghee, crushed jaggery, and roasted dry fruits.",
-      image:
-        "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80",
-      badge: "100% Desi Ghee",
+      title: "Royal Desi Ghee Treats",
+      subtitle: "Wholesome goodness crafted with rich desi ghee and authentic recipes.",
+      desc: "A nostalgic tribute to homemade flavors. Fresh rotis and wholesome ingredients hand-crushed and tossed in bubbling pure desi ghee, garnished with premium dry fruits and love.",
+      image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80",
+      badge: "100% TRADITIONAL",
       link: "/menu",
     },
     {
-      title: "Modern Café Fusion",
-      subtitle:
-        "Traditional favourites meet modern café culture with contemporary offerings.",
-      desc: "From frothy Kulhad Cold Coffees and creamy Rose Rabri Shakes to gourmet toasties and Maggi platters — crafted for today’s coffee and tea lovers.",
-      image:
-        "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=700&q=80",
-      badge: "Modern Twist",
+      title: "Gourmet Munchies & Shakes",
+      subtitle: "Savory snacks, loaded platters, and thick shakes built for your hangouts.",
+      desc: "From crispy wraps and cheesy crusts to ice-cold frothy coffees and rich chocolate shakes—curated specially to elevate your evening food sessions with friends.",
+      image: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=700&q=80",
+      badge: "ALL-DAY CRAVING",
       link: "/menu",
     },
   ];
@@ -48,18 +42,13 @@ export const BrandStory = () => {
         {/* Section Header */}
         <div className="section-header text-center">
           <span className="badge-pill badge-terracotta mb-2">
-            A TASTE THAT FEELS LIKE HOME
+            BREWED FOR THE SOUL
           </span>
           <h2 className="section-title">
-            Rooted in Punjab.{" "}
-            <span className="text-terracotta font-serif italic">
-              Built for the future.
-            </span>
+            Where Heritage Meets <span className="text-terracotta font-serif italic">Modern Cravings.</span>
           </h2>
           <p className="section-subtitle">
-            Chai Bro brings together the warmth of Indian baithaks, authentic
-            desi flavours, and the energetic hospitality of modern café culture
-            under one welcoming roof.
+            Experience the timeless warmth of traditional Punjabi hospitality blended seamlessly with the vibrant energy of a modern neighborhood café.
           </p>
         </div>
 
@@ -92,34 +81,26 @@ export const BrandStory = () => {
         <div className="story-experience-banner">
           <div className="banner-text-left">
             <span className="badge-pill badge-gurh text-xs mb-3">
-              THE CHAI BRO COMMITMENT
+              THE CRAFT & PROMISE
             </span>
             <h3 className="banner-quote-title">
-              "No one living away from home should have to miss the comfort of
-              ghar wali chai & churi."
+              "We aren't just serving tea and snacks; we are serving a warm reminder of home."
             </h3>
             <p className="banner-quote-body">
-              Born from market experience and tested culinary recipes, Chai Bro
-              has grown into a beloved modern café concept backed by
-              standardized systems, hygiene protocols, and authentic taste in
-              every single city.
+              Built from a passion for authentic street-style flavors and modern hygiene standards, Chai Bro's brings standardized recipes, exceptional ingredients, and unforgettable warmth to every cup we pour.
             </p>
             <div className="banner-bullet-list">
               <div className="bullet-item">
                 <CheckCircle2 size={16} className="text-cardamom" />
-                <span>Zero artificial essence drops or preservatives</span>
+                <span>100% natural ingredients with zero synthetic additives</span>
               </div>
               <div className="bullet-item">
                 <CheckCircle2 size={16} className="text-cardamom" />
-                <span>
-                  Porous riverbed terracotta clay that balances acidity
-                </span>
+                <span>Authentic terracotta clay cups that elevate the saundhi aroma</span>
               </div>
               <div className="bullet-item">
                 <CheckCircle2 size={16} className="text-cardamom" />
-                <span>
-                  Standardized, farm-sourced spices supplied to all outlets
-                </span>
+                <span>Dedicated local preparation ensuring farm-fresh taste every time</span>
               </div>
             </div>
           </div>
@@ -131,7 +112,7 @@ export const BrandStory = () => {
               className="banner-interior-img"
             />
             <div className="interior-caption">
-              <strong>Chai Bro’s Flagship</strong>
+              <strong>Chai Bro’s Flagship Hub</strong>
               <small>Booth No. 80, Sector 89, Mohali, Punjab</small>
             </div>
           </div>
