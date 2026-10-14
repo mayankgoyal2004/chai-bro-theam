@@ -76,6 +76,63 @@ export const HomeMenuSection = () => {
           </Link>
         </div>
 
+        {/* Featured Visual Menu Highlights from user's Menu Section Home Page */}
+        <div className="home-menu-featured-grid">
+          <Link to="/menu?category=chai" className="home-menu-feat-card" title="Explore Authentic Kulhad Chai">
+            <div className="home-menu-feat-badge">Signature Brew</div>
+            <div className="home-menu-feat-img-wrap">
+              <img
+                src="/assets/home-menu/authentic-kulhad-chai.png"
+                alt="Authentic Kulhad Chai"
+                className="home-menu-feat-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="home-menu-feat-footer">
+              <span className="feat-footer-title">Authentic Kulhad Chai</span>
+              <span className="feat-footer-arrow">
+                <ArrowRight size={15} />
+              </span>
+            </div>
+          </Link>
+
+          <Link to="/menu?category=churi" className="home-menu-feat-card" title="Explore Desi Ghee Churi & Bites">
+            <div className="home-menu-feat-badge">Pure Desi Ghee</div>
+            <div className="home-menu-feat-img-wrap">
+              <img
+                src="/assets/home-menu/desi-ghee-churi-bites.png"
+                alt="Desi Ghee Churi & Bites"
+                className="home-menu-feat-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="home-menu-feat-footer">
+              <span className="feat-footer-title">Desi Ghee Churi & Bites</span>
+              <span className="feat-footer-arrow">
+                <ArrowRight size={15} />
+              </span>
+            </div>
+          </Link>
+
+          <Link to="/menu" className="home-menu-feat-card" title="Explore Modern Café Fusion">
+            <div className="home-menu-feat-badge">Café Favorites</div>
+            <div className="home-menu-feat-img-wrap">
+              <img
+                src="/assets/home-menu/modern-cafe-fusion.png"
+                alt="Modern Café Fusion"
+                className="home-menu-feat-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="home-menu-feat-footer">
+              <span className="feat-footer-title">Modern Café Fusion</span>
+              <span className="feat-footer-arrow">
+                <ArrowRight size={15} />
+              </span>
+            </div>
+          </Link>
+        </div>
+
         {/* Category Cards Row */}
         <div className="home-menu-categories-grid">
           {categories.map((cat) => {

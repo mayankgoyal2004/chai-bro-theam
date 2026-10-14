@@ -4,24 +4,24 @@ import { Star } from 'lucide-react';
 export const Testimonials = () => {
   const reviews = [
     {
-      name: 'Harpreet Singh',
+      name: 'Harmanpreet Singh',
       comment: 'Came in for a quick chai after work and ended up staying much longer. The chai was comforting, the snacks were fresh, and the place felt really relaxed.',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
+      avatar: '/assets/reviews/harmanpreet-singh.png'
     },
     {
-      name: 'Amandeep Kaur',
+      name: 'Amanpreet Kaur',
       comment: 'We randomly stopped here while meeting friends and honestly loved the experience. Good chai, tasty food and a nice place to sit and talk without rushing.',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80'
+      avatar: '/assets/reviews/amanpreet-kaur.png'
     },
     {
       name: 'Rahul Sharma',
       comment: 'I visited with a couple of friends on a busy evening. The staff was friendly, the food arrived quickly, and the chai was exactly what we needed after a long day.',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80'
+      avatar: '/assets/reviews/rahul-sharma.png'
     },
     {
       name: 'Simran Gill',
       comment: 'What started as a simple chai plan turned into an evening of food, conversations and laughs. I really liked the relaxed atmosphere and would happily come back.',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'
+      avatar: '/assets/reviews/simran-gill.png'
     }
   ];
 
@@ -64,7 +64,14 @@ export const Testimonials = () => {
                 <img 
                   src={rev.avatar} 
                   alt={rev.name} 
-                  style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover' }} 
+                  style={{ 
+                    width: '44px', 
+                    height: '44px', 
+                    borderRadius: '50%', 
+                    objectFit: 'cover',
+                    border: '2px solid rgba(214, 46, 10, 0.25)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
+                  }} 
                 />
                 <div>
                   <strong className="block text-sm text-heading font-bold">{rev.name}</strong>

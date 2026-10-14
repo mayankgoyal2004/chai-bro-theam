@@ -4689,6 +4689,108 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* Featured Visual Menu Cards (Home Menu Section) */
+.home-menu-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 24px;
+  max-width: 1140px;
+  margin: 0 auto 40px auto;
+}
+
+.home-menu-feat-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(28, 19, 14, 0.06);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-menu-feat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(214, 46, 10, 0.16);
+  border-color: rgba(214, 46, 10, 0.3);
+}
+
+.home-menu-feat-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 377 / 230;
+  overflow: hidden;
+  background: #f5ebe6;
+}
+
+.home-menu-feat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.home-menu-feat-card:hover .home-menu-feat-img {
+  transform: scale(1.04);
+}
+
+.home-menu-feat-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: rgba(23, 7, 4, 0.82);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.home-menu-feat-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feat-footer-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1A130E;
+  transition: color 0.2s ease;
+}
+
+.home-menu-feat-card:hover .feat-footer-title {
+  color: #D62E0A;
+}
+
+.feat-footer-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(214, 46, 10, 0.08);
+  color: #D62E0A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.home-menu-feat-card:hover .feat-footer-arrow {
+  background: #D62E0A;
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
 .home-menu-categories-grid {
   display: flex;
   justify-content: center;

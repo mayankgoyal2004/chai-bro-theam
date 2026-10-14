@@ -22,6 +22,54 @@ export const GalleryPage = () => {
       badge: 'Evening Vibe'
     },
     {
+      id: 'warm-baithak',
+      category: 'ambiance',
+      title: 'Warm Earthy Seating & Modern Baithak',
+      subtitle: 'Cozy corners crafted for comfort and yaari',
+      image: '/assets/vibe/warm-earthy-seating.png',
+      badge: 'Café Ambiance'
+    },
+    {
+      id: 'brass-handi',
+      category: 'ritual',
+      title: 'Hand-Boiled Brass Handi Chai',
+      subtitle: 'Traditional slow-simmered tea with aromatic cardamom',
+      image: '/assets/vibe/hand-boiled-brass-handi-chai.png',
+      badge: 'Brew Ritual'
+    },
+    {
+      id: 'churi-chai',
+      category: 'menu',
+      title: 'Fresh Desi Ghee Churi & Kulhad Chai',
+      subtitle: 'Pure Punjabi comfort served fresh and golden',
+      image: '/assets/vibe/fresh-desi-ghee-churi.png',
+      badge: 'Heritage Swaad'
+    },
+    {
+      id: 'study-corner',
+      category: 'ambiance',
+      title: 'Late Night Study & Yaari Corner',
+      subtitle: 'Plug in, chill out, and enjoy late night conversations',
+      image: '/assets/vibe/late-night-study-yaari.png',
+      badge: 'Co-Working & Chill'
+    },
+    {
+      id: 'bun-maska',
+      category: 'menu',
+      title: 'Classic Toasted Bun Maska with Butter',
+      subtitle: 'Toasted golden buns with generous dollops of butter',
+      image: '/assets/vibe/classic-toasted-bun-maska.png',
+      badge: 'Bakery Special'
+    },
+    {
+      id: 'kulhad-cold-coffee',
+      category: 'menu',
+      title: 'Frothy Kulhad Cold Coffee in Mitti Tumbler',
+      subtitle: 'Thick whipped cold coffee with an earthy twist',
+      image: '/assets/vibe/frothy-kulhad-cold-coffee.png',
+      badge: 'Chilled Special'
+    },
+    {
       id: 'chai-kulhad',
       category: 'menu',
       title: 'Freshly Brewed Adrak & Elaichi Chai',
