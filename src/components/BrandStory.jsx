@@ -11,27 +11,27 @@ import {
 export const BrandStory = () => {
   const houseSpecials = [
     {
-      title: "Signature Kulhad Chai",
+      title: "Authentic Kulhad Chai",
       subtitle: "Brewed slow, served hot—the ultimate comfort in every terracotta cup.",
       desc: "Hand-selected tea leaves simmered to perfection with farm-fresh milk, crushed whole spices, and organic sweetness. Served exclusively in breathable clay cups for that unmatched earthy aroma.",
-      image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=80",
-      badge: "ARTISAN ROOTS",
-      link: "/menu",
+      image: "/assets/home-menu/authentic-kulhad-chai.png",
+      badge: "Signature Brew",
+      link: "/menu?category=chai",
     },
     {
-      title: "Royal Desi Ghee Treats",
+      title: "Desi Ghee Churi & Bites",
       subtitle: "Wholesome goodness crafted with rich desi ghee and authentic recipes.",
       desc: "A nostalgic tribute to homemade flavors. Fresh rotis and wholesome ingredients hand-crushed and tossed in bubbling pure desi ghee, garnished with premium dry fruits and love.",
-      image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80",
-      badge: "100% TRADITIONAL",
-      link: "/menu",
+      image: "/assets/home-menu/desi-ghee-churi-bites.png",
+      badge: "Pure Desi Ghee",
+      link: "/menu?category=churi",
     },
     {
-      title: "Gourmet Munchies & Shakes",
+      title: "Modern Café Fusion",
       subtitle: "Savory snacks, loaded platters, and thick shakes built for your hangouts.",
       desc: "From crispy wraps and cheesy crusts to ice-cold frothy coffees and rich chocolate shakes—curated specially to elevate your evening food sessions with friends.",
-      image: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=700&q=80",
-      badge: "ALL-DAY CRAVING",
+      image: "/assets/home-menu/modern-cafe-fusion.png",
+      badge: "Café Favorites",
       link: "/menu",
     },
   ];
