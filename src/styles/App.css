@@ -2411,222 +2411,753 @@
   color: #FFFFFF;
 }
 
-/* Franchise Section */
-.franchise-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 28px;
-  margin-bottom: 40px;
+/* ==========================================================================
+   FRANCHISE PAGE (5 CORE SECTIONS)
+   ========================================================================== */
+.franchise-page-wrapper {
+  position: relative;
+  overflow: hidden;
 }
 
-.franchise-model-card {
-  background: #FFFFFF;
-  border-radius: 22px;
-  padding: 32px;
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-sm);
+/* Background helpers */
+.bg-warm-light {
+  background: var(--bg-card-alt, #FDF9F5);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO SECTION
+   -------------------------------------------------------------------------- */
+.franchise-hero-section {
   position: relative;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(254, 244, 237, 0.45) 100%);
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.franchise-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
+}
+
+.franchise-hero-content {
   display: flex;
   flex-direction: column;
 }
 
-.franchise-model-card.popular {
-  border-color: var(--terracotta);
-  box-shadow: var(--shadow-md);
+.franchise-badge-wrapper {
+  display: flex;
+  align-items: center;
 }
 
-.popular-badge-pill {
+.franchise-hero-title {
+  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--text-heading);
+  margin-bottom: 1.25rem;
+}
+
+.franchise-hero-description {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--text-body);
+  max-width: 580px;
+  margin-bottom: 2rem;
+}
+
+.franchise-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.25rem;
+}
+
+.franchise-cta-btn {
+  padding: 13px 28px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  box-shadow: 0 10px 24px -6px var(--primary-glow);
+}
+
+.franchise-hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-body);
+}
+
+/* Visual element showcase on hero right side */
+.franchise-hero-visual {
+  position: relative;
+}
+
+.hero-visual-card {
+  position: relative;
+  border-radius: 26px;
+  padding: 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 45px -15px rgba(121, 21, 5, 0.12);
+}
+
+.visual-image-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: clamp(340px, 42vw, 440px);
+  background: #2D1107;
+}
+
+.hero-lifestyle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.hero-visual-card:hover .hero-lifestyle-img {
+  transform: scale(1.03);
+}
+
+.visual-image-overlay {
   position: absolute;
-  top: -12px;
-  right: 24px;
-  background: var(--terracotta);
-  color: #FFFFFF;
-  font-size: 0.7rem;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(20, 5, 2, 0.45) 100%);
+  pointer-events: none;
+}
+
+/* Floating Kulhad Accent */
+.floating-kulhad-card {
+  position: absolute;
+  bottom: -22px;
+  left: -20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-secondary);
+  border-radius: 18px;
+  padding: 12px 18px 12px 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.14);
+  max-width: 320px;
+  z-index: 2;
+  animation: floatSubtle 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatSubtle {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+.kulhad-thumb-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid var(--secondary);
+}
+
+.kulhad-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kulhad-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.kulhad-tag {
+  font-size: 0.68rem;
   font-weight: 800;
-  padding: 4px 14px;
-  border-radius: 9999px;
+  text-transform: uppercase;
+  color: var(--terracotta);
   letter-spacing: 0.5px;
 }
 
-.model-title {
-  font-size: 1.4rem;
+.kulhad-title {
+  font-size: 0.92rem;
   font-weight: 800;
   color: var(--text-heading);
+  line-height: 1.25;
 }
 
-.model-area-tag {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.model-cost-box {
-  background: var(--bg-card-alt);
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 16px;
-  margin: 18px 0;
-}
-
-.cost-label {
+.kulhad-caption {
   font-size: 0.74rem;
   color: var(--text-muted);
-  text-transform: uppercase;
-  font-weight: 600;
 }
 
-.cost-value {
-  font-size: 1.7rem;
-  font-weight: 800;
-  color: var(--terracotta);
-  line-height: 1.1;
-  margin-top: 4px;
-}
-
-.cost-roi {
-  font-size: 0.78rem;
-  color: var(--cardamom-green);
-  margin-top: 4px;
-}
-
-.model-suitability {
-  font-size: 0.82rem;
-  color: var(--text-body);
-  margin-bottom: 16px;
-}
-
-.model-feature-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-light);
-}
-
-.feature-row {
+/* Floating Top-Right Stat Badge */
+.floating-stat-badge {
+  position: absolute;
+  top: 24px;
+  right: -14px;
+  background: rgba(31, 7, 2, 0.92);
+  color: #FFFFFF;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(248, 142, 75, 0.4);
+  border-radius: 14px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.28);
+  z-index: 2;
+}
+
+.floating-stat-badge strong {
+  display: block;
   font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.floating-stat-badge span {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--secondary);
+}
+
+/* --------------------------------------------------------------------------
+   2. BRAND VALUE PROPOSITION SECTION
+   -------------------------------------------------------------------------- */
+.franchise-value-section {
+  position: relative;
+}
+
+.franchise-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 3.25rem;
+}
+
+.benefit-card {
+  background: #FFFFFF;
+  border-radius: 22px;
+  padding: 32px 26px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.benefit-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--border-primary);
+  box-shadow: 0 20px 35px -10px var(--primary-glow);
+}
+
+.benefit-icon-box {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #FFF6F1 0%, #FEEDE5 100%);
+  border: 1.5px solid rgba(214, 46, 10, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-normal);
+  box-shadow: 0 6px 16px -4px rgba(214, 46, 10, 0.12);
+}
+
+.benefit-card:hover .benefit-icon-box {
+  transform: scale(1.08) translateY(-2px);
+  background: linear-gradient(135deg, #FEEDE5 0%, #FDD7C5 100%);
+  border-color: var(--secondary);
+  box-shadow: 0 10px 22px -4px rgba(214, 46, 10, 0.22);
+}
+
+.original-benefit-svg {
+  display: block;
+  transition: transform var(--transition-fast);
+}
+
+.benefit-card:hover .original-benefit-svg {
+  transform: scale(1.05);
+}
+
+.benefit-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.benefit-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.benefit-card-footer {
+  margin-top: auto;
+}
+
+.benefit-pill {
+  display: inline-block;
+  background: var(--bg-card-alt, #FAF5EE);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid var(--border-subtle);
+  letter-spacing: 0.3px;
+}
+
+/* --------------------------------------------------------------------------
+   3. HOW IT WORKS (STEP-BY-STEP PROCESS SECTION)
+   -------------------------------------------------------------------------- */
+.franchise-process-section {
+  position: relative;
+  background: #FFFFFF;
+}
+
+.process-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 3.25rem;
+}
+
+.process-card {
+  background: #FFFFFF;
+  border-radius: 22px;
+  padding: 34px 28px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.process-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--secondary);
+  box-shadow: 0 18px 32px -8px var(--secondary-glow);
+}
+
+.process-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.process-step-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 1.15rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--border-primary);
+  box-shadow: 0 4px 12px rgba(214, 46, 10, 0.12);
+}
+
+.process-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.process-card-details {
+  font-size: 0.92rem;
+  line-height: 1.65;
   color: var(--text-body);
 }
 
-.partnership-pillars-bar {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 34px;
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 40px;
+/* --------------------------------------------------------------------------
+   4. FRANCHISE INQUIRY FORM SECTION
+   -------------------------------------------------------------------------- */
+.franchise-form-section {
+  position: relative;
 }
 
-.pillar-cell h4 {
-  font-size: 1.15rem;
+.franchise-form-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 28px;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 24px 50px -15px rgba(121, 21, 5, 0.08);
+}
+
+.form-card-header {
+  margin-bottom: 2.5rem;
+}
+
+.form-main-heading {
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  font-weight: 850;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-sub-heading {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.franchise-inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field-label {
+  font-size: 0.84rem;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
-.pillar-cell p {
-  font-size: 0.84rem;
+.required-star {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.field-input,
+.field-select {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.94rem;
+  color: var(--text-heading);
+  outline: none;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.field-input::placeholder {
+  color: #A39084;
+}
+
+.field-input:focus,
+.field-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+  background: #FFFDFB;
+}
+
+.select-container {
+  position: relative;
+}
+
+.form-note-row {
+  padding-top: 0.25rem;
+}
+
+.form-note {
+  font-size: 0.8rem;
   color: var(--text-muted);
   line-height: 1.5;
 }
 
-.enquiry-card-wrapper {
+.privacy-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.form-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.form-submit-btn {
+  flex: 1 1 260px;
+  justify-content: center;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 10px 24px -6px var(--primary-glow);
+}
+
+.form-wa-btn {
+  flex: 0 1 auto;
+  padding: 14px 22px;
+}
+
+/* Success state inside form card */
+.form-success-state {
+  padding: 2.5rem 1rem;
+}
+
+.success-icon-bubble {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: var(--cardamom-light, #EBF7EE);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--cardamom-green, #15803D);
+  animation: pulseSuccess 2s infinite;
+}
+
+@keyframes pulseSuccess {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.form-success-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   5. QUICK CONTACT / DIRECT ASSISTANCE FOOTER BLOCK
+   -------------------------------------------------------------------------- */
+.franchise-quick-contact-section {
+  position: relative;
   background: #FFFFFF;
-  border-radius: 24px;
-  padding: 44px;
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-sm);
+}
+
+.quick-contact-card {
+  background: linear-gradient(135deg, #2A0903 0%, #4D1006 50%, #791505 100%);
+  border-radius: 28px;
+  padding: clamp(2.5rem, 5vw, 4rem);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 50px -15px rgba(77, 16, 6, 0.4);
+  border: 1px solid rgba(248, 142, 75, 0.25);
+}
+
+.quick-contact-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(248, 142, 75, 0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.quick-contact-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 3rem auto;
+  position: relative;
+  z-index: 1;
+}
+
+.quick-contact-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 850;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.quick-contact-desc {
+  font-size: 1.05rem;
+  color: rgba(254, 244, 237, 0.88);
+}
+
+.direct-details-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 2.75rem;
+  position: relative;
+  z-index: 1;
 }
 
-.enquiry-info-box {
-  background: var(--bg-card-alt);
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 18px;
+.direct-detail-item {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 24px 20px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.franchise-steps-container {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  margin-bottom: 24px;
-}
-
-.franchise-step-item {
-  display: flex;
-  gap: 14px;
   align-items: flex-start;
+  gap: 16px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
 }
 
-.franchise-step-num {
-  background: var(--terracotta-light);
-  color: var(--terracotta);
-  font-weight: 800;
-  font-size: 0.95rem;
-  width: 38px;
-  height: 38px;
+.direct-detail-item:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--secondary);
+  transform: translateY(-4px);
+}
+
+.detail-icon-circle {
+  width: 46px;
+  height: 46px;
   border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid var(--border-terracotta);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.info-row {
-  font-size: 0.85rem;
-  color: var(--text-body);
-}
-
-.clean-enquiry-form {
+.detail-info {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
-.clean-form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.clean-form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.clean-form-field label {
-  font-size: 0.78rem;
+.detail-label {
+  font-size: 0.74rem;
   font-weight: 700;
-  color: var(--text-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--secondary);
+  margin-bottom: 4px;
 }
 
-.clean-form-field input, .clean-form-field select {
-  background: #FFFFFF;
-  border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 0.88rem;
-  color: var(--text-heading);
-  outline: none;
-  transition: border-color var(--transition-fast);
+.detail-value {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.35;
+  margin-bottom: 4px;
 }
 
-.clean-form-field input:focus, .clean-form-field select:focus {
-  border-color: var(--terracotta);
+.detail-sub {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.4;
+}
+
+.quick-contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE QUERIES
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .franchise-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .franchise-hero-visual {
+    max-width: 580px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .franchise-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .direct-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .franchise-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid-row {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .floating-kulhad-card {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 14px;
+    max-width: 100%;
+  }
+
+  .floating-stat-badge {
+    top: 14px;
+    right: 14px;
+  }
+
+  .form-submit-row {
+    flex-direction: column;
+  }
+
+  .form-submit-btn,
+  .form-wa-btn {
+    width: 100%;
+  }
 }
 
 /* Reviews */
