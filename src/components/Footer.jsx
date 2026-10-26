@@ -95,7 +95,7 @@ export const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="container footer-bottom-clean">
-        <div className="text-xs text-muted">
+        <div className="text-xs text-muted footer-copyright-text">
           © {new Date().getFullYear()} Chai Bro’s. All rights reserved. Peace in every sip.
         </div>
 

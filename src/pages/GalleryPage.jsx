@@ -29,44 +29,44 @@ export const GalleryPage = () => {
   ];
 
   return (
-    <div className="page-gallery" style={{ paddingTop: '100px' }}>
-      {/* Page Hero matching https://chaibros.online/gallery/ */}
-      <section className="section-padding text-center" style={{ background: 'var(--gradient-warm-bg)', borderBottom: '1px solid var(--border-subtle)' }}>
-        <div className="container">
-          <span className="badge-pill badge-terracotta mb-3">GALLERY</span>
-          <h1 className="section-title text-4xl font-extrabold text-heading">
+    <div className="page-gallery">
+      {/* Page Hero */}
+      <section className="gallery-hero-strip text-center">
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <span className="badge-pill badge-terracotta gallery-hero-badge mb-3">GALLERY</span>
+          <h1 className="section-title gallery-hero-title">
             A glimpse of <span className="text-terracotta font-serif italic">Chai Bro’s.</span>
           </h1>
-          <p className="section-subtitle mt-3 max-w-2xl mx-auto">
+          <p className="section-subtitle gallery-hero-subtitle">
             From the familiar awning to an evening chai stop, take a look around our Mohali café.
           </p>
         </div>
       </section>
 
       {/* Main Official Photos Section */}
-      <section className="section-padding bg-white">
-        <div className="container">
+      <section className="gallery-content-section bg-white">
+        <div className="container" style={{ maxWidth: '1100px' }}>
           {/* Flagship Notice Strip */}
-          <div className="storefront-hero-card mb-10" style={{ background: '#FAF7F2', borderRadius: '24px', padding: '32px', border: '1px solid var(--border-subtle)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', alignItems: 'center' }}>
-            <div>
-              <span className="badge-pill badge-gurh mb-2">FLAGSHIP OUTLET</span>
-              <h2 className="text-2xl font-bold text-heading mb-3">
+          <div className="storefront-hero-card mb-10">
+            <div className="storefront-hero-info">
+              <span className="badge-pill badge-gurh mb-2 inline-block self-start">FLAGSHIP OUTLET</span>
+              <h2 className="storefront-hero-title">
                 Booth No. 80, Sector 89, Mohali
               </h2>
-              <p className="text-body text-sm leading-relaxed mb-4">
+              <p className="storefront-hero-desc">
                 Look for our signature red-and-white awning. Settle into outdoor seating or grab your favorite kulhad chai and Desi Ghee Churi on the go.
               </p>
-              <div className="flex gap-3 flex-wrap">
+              <div className="storefront-hero-actions">
                 <a 
                   href="https://www.google.com/maps/search/?api=1&query=Chai%20Bro%27s%2C%20Booth%20No.%2080%2C%20Sector%2089%2C%20Mohali%2C%20Punjab"
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="btn-primary"
+                  className="btn-primary storefront-action-btn"
                 >
                   <MapPin size={16} />
                   <span>Get Directions ↗</span>
                 </a>
-                <Link to="/menu" className="btn-secondary">
+                <Link to="/menu" className="btn-secondary storefront-action-btn">
                   <span>Explore Menu</span>
                   <ArrowRight size={16} />
                 </Link>
@@ -74,15 +74,22 @@ export const GalleryPage = () => {
             </div>
 
             <div 
-              style={{ borderRadius: '18px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', background: '#140d0a', cursor: 'pointer', position: 'relative' }}
+              className="storefront-hero-media"
               onClick={() => setSelectedPhoto(galleryItems[1])}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setSelectedPhoto(galleryItems[1]);
+                }
+              }}
             >
               <img 
                 src="/assets/chaibros/original-night-1.webp" 
                 alt="Chai Bro's Storefront Booth No. 80 Sector 89 Mohali"
-                style={{ width: '100%', height: '360px', objectFit: 'cover', objectPosition: 'center 20%' }}
+                className="storefront-hero-img"
               />
-              <span style={{ position: 'absolute', bottom: '16px', left: '16px', background: 'rgba(23,7,4,0.85)', color: '#FFF', fontSize: '0.75rem', fontWeight: '700', padding: '6px 14px', borderRadius: '9999px', backdropFilter: 'blur(6px)', border: '1px solid rgba(255,255,255,0.2)' }}>
+              <span className="storefront-enlarge-badge">
                 Click to Enlarge
               </span>
             </div>

@@ -10,6 +10,9 @@ import {
   ChevronRight,
   Heart,
   CheckCircle2,
+  Award,
+  Crown,
+  TrendingUp,
 } from "lucide-react";
 import { HeroParticles } from "./HeroParticles";
 
@@ -27,34 +30,37 @@ export const Hero = () => {
       id: "gurh-laachi",
       tabLabel: "Gurh Laachi Chai",
       icon: Coffee,
-      tag: "🔥 #1 Tricity Best Seller",
+      tagIcon: Award,
+      tagText: "#1 Tricity Best Seller",
       title: "Artisanal Gurh Laachi Chai",
-      image: "/assets/hero/GIF_1.gif",
-      alt: "Artisanal Gurh Laachi Kulhad Chai Pour Animation",
+      image: "/assets/hero/hero_kulhad_pour.jpg",
+      alt: "Artisanal Gurh Laachi Kulhad Chai Pour",
     },
     {
       id: "desi-churi",
       tabLabel: "Ghar Ki Desi Churi",
       icon: Flame,
-      tag: "✨ Royal Punjabi Comfort",
+      tagIcon: Crown,
+      tagText: "Royal Punjabi Comfort",
       title: "Desi Ghee Churi & Bun Maska",
-      image: "/assets/hero/GIF_2.gif",
-      alt: "Punjabi Desi Ghee Churi and Bun Maska Delight Animation",
+      image: "/assets/hero/hero_churi_delight.jpg",
+      alt: "Punjabi Desi Ghee Churi and Bun Maska Delight",
     },
     {
       id: "franchise-fofo",
       tabLabel: "Franchise Model",
       icon: Store,
-      tag: "🏆 High ROI Opportunity",
+      tagIcon: TrendingUp,
+      tagText: "High ROI Opportunity",
       title: "Modern Café Network",
-      image: "/assets/hero/GIF_3.gif",
-      alt: "Gurh Laachi and Chai Bro Modern Café Outlets Animation",
+      image: "/assets/hero/hero_ambient_bg.jpg",
+      alt: "Gurh Laachi and Chai Bro Modern Café Outlets",
     },
   ];
 
   const currentExp = experiences[activeTab];
 
-  // Preload GIFs into cache so transitions are instant
+  // Preload images into cache so transitions are instant
   useEffect(() => {
     experiences.forEach((exp) => {
       const img = new Image();
@@ -114,11 +120,14 @@ export const Hero = () => {
         <div className="hero-main-grid">
           {/* Left Column: Headline, CTAs & Trust Badges */}
           <div className="hero-content-col">
-            {/* Top Heritage Pill with Pulse Indicator */}
+            {/* Top Heritage Eyebrow Badge */}
             <div className="hero-badge-pill">
-              <span className="badge-live-pulse" aria-hidden="true"></span>
-              <Sparkles size={14} className="badge-sparkle-icon" />
-              <span>ROOTED IN PUNJAB • CRAFTED FOR MODERN SOULS</span>
+              <span className="badge-heritage-tag">
+                <Flame size={12} className="badge-flame-icon" />
+                <span>ROOTED IN PUNJAB</span>
+              </span>
+              <span className="badge-divider-dot">✦</span>
+              <span className="badge-heritage-subtext">CRAFTED FOR MODERN SOULS</span>
             </div>
 
             {/* Main Title */}
@@ -163,7 +172,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Visual Showcase Frame with GIF & Switcher */}
+          {/* Right Column: Visual Showcase Frame with Image & Switcher */}
           <div
             className={`hero-visual-col ${isHovered ? "is-hovered" : ""}`}
             onMouseEnter={() => setIsHovered(true)}
@@ -193,7 +202,7 @@ export const Hero = () => {
                 }}
               />
 
-              {/* Main GIF Image Frame */}
+              {/* Main Showcase Image Frame */}
               <div className="showcase-image-wrapper">
                 <img
                   key={currentExp.image}
@@ -202,11 +211,16 @@ export const Hero = () => {
                   className="showcase-img"
                 />
 
-                {/* Top Left Tag */}
-                <div className="showcase-tag-badge">
-                  <span className="live-dot"></span>
-                  <span>{currentExp.tag}</span>
-                </div>
+                {/* Top Left Showcase Tag Badge */}
+                {(() => {
+                  const TagIcon = currentExp.tagIcon || Award;
+                  return (
+                    <div key={currentExp.id} className="showcase-tag-badge">
+                      <TagIcon size={13} strokeWidth={2} className="showcase-tag-svg" />
+                      <span>{currentExp.tagText}</span>
+                    </div>
+                  );
+                })()}
 
                 {/* Like Button */}
                 <button
