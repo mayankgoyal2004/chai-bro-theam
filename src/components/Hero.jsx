@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -6,17 +6,16 @@ import {
   Star,
   Coffee,
   Store,
-  ShieldCheck,
   Flame,
   ChevronRight,
   Heart,
-  Award,
   CheckCircle2,
 } from "lucide-react";
 import { HeroParticles } from "./HeroParticles";
 
 export const Hero = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const [liked, setLiked] = useState(false);
 
   // 3D Parallax Tilt state
@@ -30,13 +29,8 @@ export const Hero = () => {
       icon: Coffee,
       tag: "🔥 #1 Tricity Best Seller",
       title: "Artisanal Gurh Laachi Chai",
-      desc: "Double-boiled pure buffalo milk slow-simmered in traditional brass handi with whole green cardamom & raw organic jaggery.",
-      image: "/assets/hero/hero_kulhad_pour.jpg",
-      alt: "Artisanal Gurh Laachi Kulhad Chai Pour",
-      price: "₹49",
-      unit: "per earthen kulhad",
-      ctaText: "Explore Full Menu",
-      ctaLink: "/menu",
+      image: "/assets/hero/GIF_1.gif",
+      alt: "Artisanal Gurh Laachi Kulhad Chai Pour Animation",
     },
     {
       id: "desi-churi",
@@ -44,31 +38,40 @@ export const Hero = () => {
       icon: Flame,
       tag: "✨ Royal Punjabi Comfort",
       title: "Desi Ghee Churi & Bun Maska",
-      desc: "Hand-crushed tandoori rotis blended with warm pure desi ghee, organic country jaggery, crushed pistachios, and saffron.",
-      image: "/assets/hero/hero_churi_delight.jpg",
-      alt: "Punjabi Desi Ghee Churi and Bun Maska Delight",
-      price: "₹99",
-      unit: "rich heritage bowl",
-      ctaText: "View Food Delicacies",
-      ctaLink: "/menu",
+      image: "/assets/hero/GIF_2.gif",
+      alt: "Punjabi Desi Ghee Churi and Bun Maska Delight Animation",
     },
     {
       id: "franchise-fofo",
       tabLabel: "Franchise Model",
       icon: Store,
       tag: "🏆 High ROI Opportunity",
-      title: "Own A Gurh Laachi Outlet",
-      desc: "Join India’s fastest growing modern café network with standard kitchen SOPs, manpower support, and zero hidden royalties.",
-      image: "/assets/hero/hero_ambient_bg.jpg",
-      alt: "Gurh Laachi and Chai Bro Modern Café Outlets",
-      price: "FOFO",
-      unit: "200+ Outlets",
-      ctaText: "Get Franchise Kit",
-      ctaLink: "/franchise",
+      title: "Modern Café Network",
+      image: "/assets/hero/GIF_3.gif",
+      alt: "Gurh Laachi and Chai Bro Modern Café Outlets Animation",
     },
   ];
 
   const currentExp = experiences[activeTab];
+
+  // Preload GIFs into cache so transitions are instant
+  useEffect(() => {
+    experiences.forEach((exp) => {
+      const img = new Image();
+      img.src = exp.image;
+    });
+  }, []);
+
+  // Auto-switch between experiences every 4.5 seconds with pause on hover
+  useEffect(() => {
+    if (isHovered) return;
+
+    const timer = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % experiences.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [isHovered, activeTab, experiences.length]);
 
   // Mouse move tilt effect
   const handleMouseMove = (e) => {
@@ -109,12 +112,11 @@ export const Hero = () => {
       {/* Main Hero Container */}
       <div className="container hero-inner-container">
         <div className="hero-main-grid">
-          
-          {/* Left Column: Headline, Body, Tab Switcher & CTAs */}
+          {/* Left Column: Headline, CTAs & Trust Badges */}
           <div className="hero-content-col">
-            
-            {/* Top Heritage Pill */}
+            {/* Top Heritage Pill with Pulse Indicator */}
             <div className="hero-badge-pill">
+              <span className="badge-live-pulse" aria-hidden="true"></span>
               <Sparkles size={14} className="badge-sparkle-icon" />
               <span>ROOTED IN PUNJAB • CRAFTED FOR MODERN SOULS</span>
             </div>
@@ -127,36 +129,10 @@ export const Hero = () => {
               </span>
             </h1>
 
-            {/* Subtitle / Description */}
-            <p className="hero-description">
-              Savor slow-simmered <strong>Gurh Laachi Kulhad Chai</strong>, golden
-              handcrafted <strong>Desi Ghee Churi</strong>, and signature coffees —
-              brewed with pure buffalo milk and unglazed riverbed clay.
-            </p>
-
-            {/* Clean Specialty Selector Tabs */}
-            <div className="hero-tabs-bar" role="tablist">
-              {experiences.map((exp, idx) => {
-                const TabIcon = exp.icon;
-                return (
-                  <button
-                    key={exp.id}
-                    role="tab"
-                    aria-selected={activeTab === idx}
-                    onClick={() => setActiveTab(idx)}
-                    className={`hero-pill-tab ${activeTab === idx ? "active" : ""}`}
-                  >
-                    <TabIcon size={15} />
-                    <span>{exp.tabLabel}</span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Action Buttons */}
+            {/* Permanent Action Buttons */}
             <div className="hero-actions-row">
-              <Link to={currentExp.ctaLink} className="btn-hero-primary">
-                <span>{currentExp.ctaText}</span>
+              <Link to="/menu" className="btn-hero-primary">
+                <span>Explore Full Menu</span>
                 <div className="btn-icon-wrapper">
                   <ArrowRight size={16} />
                 </div>
@@ -185,11 +161,17 @@ export const Hero = () => {
                 <span>Pure Buffalo Milk</span>
               </div>
             </div>
-
           </div>
 
-          {/* Right Column: Visual Showcase Frame */}
-          <div className="hero-visual-col">
+          {/* Right Column: Visual Showcase Frame with GIF & Switcher */}
+          <div
+            className={`hero-visual-col ${isHovered ? "is-hovered" : ""}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {/* Ambient Backlight Glow behind Showcase */}
+            <div className="hero-card-ambient-aura" aria-hidden="true"></div>
+
             <div
               ref={frameRef}
               className="hero-card-showcase"
@@ -211,7 +193,7 @@ export const Hero = () => {
                 }}
               />
 
-              {/* Main Image Frame */}
+              {/* Main GIF Image Frame */}
               <div className="showcase-image-wrapper">
                 <img
                   key={currentExp.image}
@@ -219,13 +201,6 @@ export const Hero = () => {
                   alt={currentExp.alt}
                   className="showcase-img"
                 />
-
-                {/* Gentle Steam Animation */}
-                <div className="steam-overlay" aria-hidden="true">
-                  <div className="steam-particle steam-1"></div>
-                  <div className="steam-particle steam-2"></div>
-                  <div className="steam-particle steam-3"></div>
-                </div>
 
                 {/* Top Left Tag */}
                 <div className="showcase-tag-badge">
@@ -239,31 +214,20 @@ export const Hero = () => {
                   onClick={() => setLiked(!liked)}
                   className={`showcase-heart-btn ${liked ? "liked" : ""}`}
                   title="Favorite"
+                  aria-label="Add to favorites"
                 >
                   <Heart
                     size={16}
                     className={liked ? "fill-terracotta text-terracotta" : ""}
                   />
                 </button>
-
-                {/* Glass Bottom Info Overlay */}
-                <div className="showcase-glass-card">
-                  <div className="glass-text-content">
-                    <span className="glass-subtitle">{currentExp.title}</span>
-                    <p className="glass-desc-short">{currentExp.desc}</p>
-                  </div>
-                  <div className="glass-price-box">
-                    <span className="glass-price-val">{currentExp.price}</span>
-                    <span className="glass-price-sub">{currentExp.unit}</span>
-                  </div>
-                </div>
               </div>
 
               {/* Floating Review Badge */}
               <div className="hero-floating-testimonial">
                 <div className="rating-stars">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={13} className="star-filled" />
+                    <Star key={i} size={11} className="star-filled" />
                   ))}
                   <strong className="score-text">4.9 / 5.0</strong>
                 </div>
@@ -272,13 +236,43 @@ export const Hero = () => {
                 </p>
                 <div className="testimonial-user">
                   <div className="user-avatar">GK</div>
-                  <span className="user-name">Gurinder K. • Verified Review</span>
+                  <span className="user-name">
+                    Gurinder K. • Verified Review
+                  </span>
                 </div>
               </div>
+            </div>
 
+            {/* Compact Specialty Selector Tabs with Auto-Switching */}
+            <div
+              className="hero-tabs-bar hero-tabs-bar-bottom"
+              role="tablist"
+              aria-label="Hero Experience Switcher"
+            >
+              {experiences.map((exp, idx) => {
+                const TabIcon = exp.icon;
+                const isActive = activeTab === idx;
+                return (
+                  <button
+                    key={exp.id}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setActiveTab(idx)}
+                    className={`hero-pill-tab ${isActive ? "active" : ""}`}
+                  >
+                    <TabIcon size={13} />
+                    <span>{exp.tabLabel}</span>
+                    {isActive && (
+                      <span
+                        key={`prog-${idx}`}
+                        className={`tab-progress-indicator ${isHovered ? "paused" : ""}`}
+                      />
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
-
         </div>
       </div>
 
